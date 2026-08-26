@@ -1,0 +1,40 @@
+{
+    "path_count": 125,
+    "parsed_path_count": 125,
+    "static_analysis_path_count": 0,
+    "static_analysis_parsed_path_count": 0,
+    "is_partial_parse_enabled": true,
+    "is_static_analysis_enabled": true,
+    "read_files_elapsed": 0.2502827889998116,
+    "load_macros_elapsed": 1.586594189999687,
+    "parse_project_elapsed": 0.03640126899972529,
+    "patch_sources_elapsed": 1.423699995939387e-05,
+    "process_manifest_elapsed": 0.05930767400013792,
+    "load_all_elapsed": 2.055650843999956,
+    "projects": [
+        {
+            "project_name": "coffee_dw",
+            "elapsed": 0.021158068999739044,
+            "parsers": [],
+            "parsed_path_count": 0
+        },
+        {
+            "project_name": "dbt_postgres",
+            "elapsed": 0.007103759000074206,
+            "parsers": [],
+            "parsed_path_count": 0
+        },
+        {
+            "project_name": "dbt",
+            "elapsed": 0.007996362000085355,
+            "parsers": [
+                {
+                    "parser": "doc",
+                    "elapsed": 0.0004302600000301027,
+                    "parsed_path_count": 1
+                }
+            ],
+            "parsed_path_count": 1
+        }
+    ]
+}

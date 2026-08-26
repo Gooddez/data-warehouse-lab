@@ -1,0 +1,2481 @@
+[0m04:19:03.139113 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f98a3a3cb90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f98a19f8b60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f98a1fd3da0>]}
+
+
+============================== 04:19:03.162457 | 022d8a2c-42c6-43c8-96bc-9b4708988551 ==============================
+[0m04:19:03.162457 [info ] [MainThread]: Running with dbt=1.9.0
+[0m04:19:03.164167 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'profiles_dir': '/root/.dbt', 'log_path': '/usr/app/dvd_kpi/logs', 'debug': 'False', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt debug', 'introspect': 'True', 'static_parser': 'True', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m04:19:03.201901 [info ] [MainThread]: dbt version: 1.9.0
+[0m04:19:03.203335 [info ] [MainThread]: python version: 3.12.4
+[0m04:19:03.204518 [info ] [MainThread]: python path: /usr/local/bin/python
+[0m04:19:03.205927 [info ] [MainThread]: os info: Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.31
+[0m04:19:03.282456 [info ] [MainThread]: Using profiles dir at /root/.dbt
+[0m04:19:03.283970 [info ] [MainThread]: Using profiles.yml file at /root/.dbt/profiles.yml
+[0m04:19:03.285515 [info ] [MainThread]: Using dbt_project.yml file at /usr/app/dvd_kpi/dbt_project.yml
+[0m04:19:03.286944 [info ] [MainThread]: adapter type: postgres
+[0m04:19:03.288191 [info ] [MainThread]: adapter version: 1.9.0
+[0m04:19:03.403215 [info ] [MainThread]: Configuration:
+[0m04:19:03.404884 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m04:19:03.406229 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m04:19:03.407313 [info ] [MainThread]: Required dependencies:
+[0m04:19:03.408621 [debug] [MainThread]: Executing "git --help"
+[0m04:19:03.432273 [debug] [MainThread]: STDOUT: "b"usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone             Clone a repository into a new directory\n   init              Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add               Add file contents to the index\n   mv                Move or rename a file, a directory, or a symlink\n   restore           Restore working tree files\n   rm                Remove files from the working tree and from the index\n   sparse-checkout   Initialize and modify the sparse-checkout\n\nexamine the history and state (see also: git help revisions)\n   bisect            Use binary search to find the commit that introduced a bug\n   diff              Show changes between commits, commit and working tree, etc\n   grep              Print lines matching a pattern\n   log               Show commit logs\n   show              Show various types of objects\n   status            Show the working tree status\n\ngrow, mark and tweak your common history\n   branch            List, create, or delete branches\n   commit            Record changes to the repository\n   merge             Join two or more development histories together\n   rebase            Reapply commits on top of another base tip\n   reset             Reset current HEAD to the specified state\n   switch            Switch branches\n   tag               Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch             Download objects and refs from another repository\n   pull              Fetch from and integrate with another repository or a local branch\n   push              Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m04:19:03.433718 [debug] [MainThread]: STDERR: "b''"
+[0m04:19:03.434734 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m04:19:03.436000 [info ] [MainThread]: Connection:
+[0m04:19:03.437446 [info ] [MainThread]:   host: postgres
+[0m04:19:03.438825 [info ] [MainThread]:   port: 5432
+[0m04:19:03.440285 [info ] [MainThread]:   user: dw_user
+[0m04:19:03.441596 [info ] [MainThread]:   database: dvdrental
+[0m04:19:03.443263 [info ] [MainThread]:   schema: dbt
+[0m04:19:03.444502 [info ] [MainThread]:   connect_timeout: 10
+[0m04:19:03.445639 [info ] [MainThread]:   role: None
+[0m04:19:03.446824 [info ] [MainThread]:   search_path: None
+[0m04:19:03.448281 [info ] [MainThread]:   keepalives_idle: 0
+[0m04:19:03.449620 [info ] [MainThread]:   sslmode: None
+[0m04:19:03.450898 [info ] [MainThread]:   sslcert: None
+[0m04:19:03.452562 [info ] [MainThread]:   sslkey: None
+[0m04:19:03.455098 [info ] [MainThread]:   sslrootcert: None
+[0m04:19:03.456543 [info ] [MainThread]:   application_name: dbt
+[0m04:19:03.457952 [info ] [MainThread]:   retries: 1
+[0m04:19:03.459488 [info ] [MainThread]: Registered adapter: postgres=1.9.0
+[0m04:19:03.542850 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m04:19:03.742173 [debug] [MainThread]: Using postgres connection "debug"
+[0m04:19:03.743881 [debug] [MainThread]: On debug: select 1 as id
+[0m04:19:03.745182 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m04:19:03.787491 [debug] [MainThread]: SQL status: SELECT 1 in 0.042 seconds
+[0m04:19:03.790419 [debug] [MainThread]: On debug: Close
+[0m04:19:03.792266 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m04:19:03.793963 [info ] [MainThread]: [32mAll checks passed![0m
+[0m04:19:03.805043 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": true, "command_wall_clock_time": 0.8249035, "process_in_blocks": "7592", "process_kernel_time": 0.280317, "process_mem_max_rss": "101364", "process_out_blocks": "72", "process_user_time": 1.611828}
+[0m04:19:03.807305 [debug] [MainThread]: Command `dbt debug` succeeded at 04:19:03.807016 after 0.83 seconds
+[0m04:19:03.808762 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m04:19:03.810414 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f98a23f7260>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f98a1d9e420>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f98a20ac320>]}
+[0m04:19:03.811834 [debug] [MainThread]: Flushing usage events
+[0m04:19:05.125661 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m04:47:30.541510 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f44ad839fa0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f44ac779730>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f44ac7789e0>]}
+
+
+============================== 04:47:30.546446 | 986b29a5-e33c-4109-b99f-04b911ed7fa4 ==============================
+[0m04:47:30.546446 [info ] [MainThread]: Running with dbt=1.9.0
+[0m04:47:30.547999 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'fail_fast': 'False', 'log_path': '/usr/app/dvd_kpi/logs', 'profiles_dir': '/root/.dbt', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'target_path': 'None', 'invocation_command': 'dbt parse', 'send_anonymous_usage_stats': 'True'}
+[0m04:47:30.753923 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '986b29a5-e33c-4109-b99f-04b911ed7fa4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f44aaa18aa0>]}
+[0m04:47:30.816937 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '986b29a5-e33c-4109-b99f-04b911ed7fa4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f44ab476f00>]}
+[0m04:47:30.818483 [info ] [MainThread]: Registered adapter: postgres=1.9.0
+[0m04:47:30.900850 [debug] [MainThread]: checksum: c99e828bba267739642b5a3ce85f17518764ea526e0e6c4fdc649171c1a66bff, vars: {}, profile: , target: , version: 1.9.0
+[0m04:47:30.903998 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m04:47:30.905146 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '986b29a5-e33c-4109-b99f-04b911ed7fa4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f44a9299880>]}
+[0m04:47:31.979728 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 5 unused configuration paths:
+- models.dvd_kpi.marts
+- models.dvd_kpi.intermediate
+- models.dvd_kpi.staging
+- seeds.dvd_kpi.metric_definition
+- seeds.dvd_kpi
+[0m04:47:31.995743 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '986b29a5-e33c-4109-b99f-04b911ed7fa4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f44a9053020>]}
+[0m04:47:32.005239 [info ] [MainThread]: Performance info: /usr/app/dvd_kpi/target/perf_info.json
+[0m04:47:32.083516 [debug] [MainThread]: Wrote artifact WritableManifest to /usr/app/dvd_kpi/target/manifest.json
+[0m04:47:32.092313 [debug] [MainThread]: Wrote artifact SemanticManifest to /usr/app/dvd_kpi/target/semantic_manifest.json
+[0m04:47:32.095514 [debug] [MainThread]: Resource report: {"command_name": "parse", "command_success": true, "command_wall_clock_time": 1.6643542, "process_in_blocks": "2072", "process_kernel_time": 0.325821, "process_mem_max_rss": "97956", "process_out_blocks": "0", "process_user_time": 2.413113}
+[0m04:47:32.097658 [debug] [MainThread]: Command `dbt parse` succeeded at 04:47:32.097388 after 1.67 seconds
+[0m04:47:32.098888 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f44ad839fa0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f44aaad1e50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f44ab475160>]}
+[0m04:47:32.100025 [debug] [MainThread]: Flushing usage events
+[0m04:47:33.194668 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m04:48:57.224559 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f6476e83800>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f6476d578c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f6476e1b920>]}
+
+
+============================== 04:48:57.229790 | 0839a5f8-e064-4060-987c-f6cec716a951 ==============================
+[0m04:48:57.229790 [info ] [MainThread]: Running with dbt=1.9.0
+[0m04:48:57.231171 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'profiles_dir': '/root/.dbt', 'log_path': '/usr/app/dvd_kpi/logs', 'version_check': 'True', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'log_format': 'default', 'static_parser': 'True', 'invocation_command': 'dbt run --select stg_rental stg_payment stg_inventory stg_film', 'introspect': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m04:48:57.429426 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '0839a5f8-e064-4060-987c-f6cec716a951', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f64768d2b10>]}
+[0m04:48:57.495821 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '0839a5f8-e064-4060-987c-f6cec716a951', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f64769abf80>]}
+[0m04:48:57.497821 [info ] [MainThread]: Registered adapter: postgres=1.9.0
+[0m04:48:57.574480 [debug] [MainThread]: checksum: c99e828bba267739642b5a3ce85f17518764ea526e0e6c4fdc649171c1a66bff, vars: {}, profile: , target: , version: 1.9.0
+[0m04:48:57.815591 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 4 files added, 0 files changed.
+[0m04:48:57.817282 [debug] [MainThread]: Partial parsing: added file: dvd_kpi://models/staging/stg_payment.sql
+[0m04:48:57.818434 [debug] [MainThread]: Partial parsing: added file: dvd_kpi://models/staging/stg_inventory.sql
+[0m04:48:57.819547 [debug] [MainThread]: Partial parsing: added file: dvd_kpi://models/staging/stg_film.sql
+[0m04:48:57.820595 [debug] [MainThread]: Partial parsing: added file: dvd_kpi://models/staging/stg_rental.sql
+[0m04:48:58.158856 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 4 unused configuration paths:
+- models.dvd_kpi.marts
+- models.dvd_kpi.intermediate
+- seeds.dvd_kpi
+- seeds.dvd_kpi.metric_definition
+[0m04:48:58.175496 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '0839a5f8-e064-4060-987c-f6cec716a951', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f6474d057c0>]}
+[0m04:48:58.268452 [debug] [MainThread]: Wrote artifact WritableManifest to /usr/app/dvd_kpi/target/manifest.json
+[0m04:48:58.275583 [debug] [MainThread]: Wrote artifact SemanticManifest to /usr/app/dvd_kpi/target/semantic_manifest.json
+[0m04:48:58.323007 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '0839a5f8-e064-4060-987c-f6cec716a951', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f6474d043e0>]}
+[0m04:48:58.324410 [info ] [MainThread]: Found 4 models, 4 sources, 429 macros
+[0m04:48:58.325779 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '0839a5f8-e064-4060-987c-f6cec716a951', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f6474e3c890>]}
+[0m04:48:58.328709 [info ] [MainThread]: 
+[0m04:48:58.330315 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m04:48:58.331686 [info ] [MainThread]: 
+[0m04:48:58.333499 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m04:48:58.340843 [debug] [ThreadPool]: Acquiring new postgres connection 'list_dvdrental'
+[0m04:48:58.416208 [debug] [ThreadPool]: Using postgres connection "list_dvdrental"
+[0m04:48:58.417955 [debug] [ThreadPool]: On list_dvdrental: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "connection_name": "list_dvdrental"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m04:48:58.419115 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m04:48:58.445599 [debug] [ThreadPool]: SQL status: SELECT 4 in 0.026 seconds
+[0m04:48:58.448071 [debug] [ThreadPool]: On list_dvdrental: Close
+[0m04:48:58.450114 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_dvdrental, now create_dvdrental_dbt_staging)
+[0m04:48:58.451448 [debug] [ThreadPool]: Creating schema "database: "dvdrental"
+schema: "dbt_staging"
+"
+[0m04:48:58.457122 [debug] [ThreadPool]: Using postgres connection "create_dvdrental_dbt_staging"
+[0m04:48:58.458240 [debug] [ThreadPool]: On create_dvdrental_dbt_staging: BEGIN
+[0m04:48:58.459270 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m04:48:58.465358 [debug] [ThreadPool]: SQL status: BEGIN in 0.006 seconds
+[0m04:48:58.466560 [debug] [ThreadPool]: Using postgres connection "create_dvdrental_dbt_staging"
+[0m04:48:58.467500 [debug] [ThreadPool]: On create_dvdrental_dbt_staging: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "connection_name": "create_dvdrental_dbt_staging"} */
+create schema if not exists "dbt_staging"
+[0m04:48:58.471749 [debug] [ThreadPool]: SQL status: CREATE SCHEMA in 0.003 seconds
+[0m04:48:58.473320 [debug] [ThreadPool]: On create_dvdrental_dbt_staging: COMMIT
+[0m04:48:58.474248 [debug] [ThreadPool]: Using postgres connection "create_dvdrental_dbt_staging"
+[0m04:48:58.475266 [debug] [ThreadPool]: On create_dvdrental_dbt_staging: COMMIT
+[0m04:48:58.477456 [debug] [ThreadPool]: SQL status: COMMIT in 0.001 seconds
+[0m04:48:58.478508 [debug] [ThreadPool]: On create_dvdrental_dbt_staging: Close
+[0m04:48:58.481122 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_dvdrental_dbt_staging, now list_dvdrental_dbt_staging)
+[0m04:48:58.487554 [debug] [ThreadPool]: Using postgres connection "list_dvdrental_dbt_staging"
+[0m04:48:58.488565 [debug] [ThreadPool]: On list_dvdrental_dbt_staging: BEGIN
+[0m04:48:58.489461 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m04:48:58.495786 [debug] [ThreadPool]: SQL status: BEGIN in 0.006 seconds
+[0m04:48:58.497080 [debug] [ThreadPool]: Using postgres connection "list_dvdrental_dbt_staging"
+[0m04:48:58.498144 [debug] [ThreadPool]: On list_dvdrental_dbt_staging: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "connection_name": "list_dvdrental_dbt_staging"} */
+select
+      'dvdrental' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'dbt_staging'
+    union all
+    select
+      'dvdrental' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'dbt_staging'
+    union all
+    select
+      'dvdrental' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'dbt_staging'
+  
+[0m04:48:58.512870 [debug] [ThreadPool]: SQL status: SELECT 0 in 0.014 seconds
+[0m04:48:58.515071 [debug] [ThreadPool]: On list_dvdrental_dbt_staging: ROLLBACK
+[0m04:48:58.516124 [debug] [ThreadPool]: On list_dvdrental_dbt_staging: Close
+[0m04:48:58.521962 [debug] [MainThread]: Using postgres connection "master"
+[0m04:48:58.524288 [debug] [MainThread]: On master: BEGIN
+[0m04:48:58.525222 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m04:48:58.530671 [debug] [MainThread]: SQL status: BEGIN in 0.005 seconds
+[0m04:48:58.531981 [debug] [MainThread]: Using postgres connection "master"
+[0m04:48:58.533022 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m04:48:58.549584 [debug] [MainThread]: SQL status: SELECT 37 in 0.015 seconds
+[0m04:48:58.553013 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '0839a5f8-e064-4060-987c-f6cec716a951', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f6474cc2060>]}
+[0m04:48:58.554415 [debug] [MainThread]: On master: ROLLBACK
+[0m04:48:58.555824 [debug] [MainThread]: Using postgres connection "master"
+[0m04:48:58.556846 [debug] [MainThread]: On master: BEGIN
+[0m04:48:58.558272 [debug] [MainThread]: SQL status: BEGIN in 0.000 seconds
+[0m04:48:58.559177 [debug] [MainThread]: On master: COMMIT
+[0m04:48:58.560175 [debug] [MainThread]: Using postgres connection "master"
+[0m04:48:58.561100 [debug] [MainThread]: On master: COMMIT
+[0m04:48:58.562309 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m04:48:58.563121 [debug] [MainThread]: On master: Close
+[0m04:48:58.567533 [debug] [Thread-1 (]: Began running node model.dvd_kpi.stg_film
+[0m04:48:58.567915 [debug] [Thread-2 (]: Began running node model.dvd_kpi.stg_inventory
+[0m04:48:58.568347 [debug] [Thread-3 (]: Began running node model.dvd_kpi.stg_payment
+[0m04:48:58.568924 [debug] [Thread-4 (]: Began running node model.dvd_kpi.stg_rental
+[0m04:48:58.569776 [info ] [Thread-1 (]: 1 of 4 START sql view model dbt_staging.stg_film ............................... [RUN]
+[0m04:48:58.571106 [info ] [Thread-2 (]: 2 of 4 START sql view model dbt_staging.stg_inventory .......................... [RUN]
+[0m04:48:58.572477 [info ] [Thread-3 (]: 3 of 4 START sql view model dbt_staging.stg_payment ............................ [RUN]
+[0m04:48:58.573842 [info ] [Thread-4 (]: 4 of 4 START sql view model dbt_staging.stg_rental ............................. [RUN]
+[0m04:48:58.575342 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_dvdrental_dbt_staging, now model.dvd_kpi.stg_film)
+[0m04:48:58.576682 [debug] [Thread-2 (]: Acquiring new postgres connection 'model.dvd_kpi.stg_inventory'
+[0m04:48:58.577764 [debug] [Thread-3 (]: Acquiring new postgres connection 'model.dvd_kpi.stg_payment'
+[0m04:48:58.578967 [debug] [Thread-4 (]: Acquiring new postgres connection 'model.dvd_kpi.stg_rental'
+[0m04:48:58.580140 [debug] [Thread-1 (]: Began compiling node model.dvd_kpi.stg_film
+[0m04:48:58.581260 [debug] [Thread-2 (]: Began compiling node model.dvd_kpi.stg_inventory
+[0m04:48:58.582506 [debug] [Thread-3 (]: Began compiling node model.dvd_kpi.stg_payment
+[0m04:48:58.583388 [debug] [Thread-4 (]: Began compiling node model.dvd_kpi.stg_rental
+[0m04:48:58.592349 [debug] [Thread-1 (]: Writing injected SQL for node "model.dvd_kpi.stg_film"
+[0m04:48:58.596283 [debug] [Thread-2 (]: Writing injected SQL for node "model.dvd_kpi.stg_inventory"
+[0m04:48:58.600423 [debug] [Thread-3 (]: Writing injected SQL for node "model.dvd_kpi.stg_payment"
+[0m04:48:58.604455 [debug] [Thread-4 (]: Writing injected SQL for node "model.dvd_kpi.stg_rental"
+[0m04:48:58.622210 [debug] [Thread-1 (]: Began executing node model.dvd_kpi.stg_film
+[0m04:48:58.629080 [debug] [Thread-2 (]: Began executing node model.dvd_kpi.stg_inventory
+[0m04:48:58.681709 [debug] [Thread-2 (]: Writing runtime sql for node "model.dvd_kpi.stg_inventory"
+[0m04:48:58.682358 [debug] [Thread-1 (]: Writing runtime sql for node "model.dvd_kpi.stg_film"
+[0m04:48:58.683410 [debug] [Thread-4 (]: Began executing node model.dvd_kpi.stg_rental
+[0m04:48:58.684144 [debug] [Thread-3 (]: Began executing node model.dvd_kpi.stg_payment
+[0m04:48:58.689729 [debug] [Thread-4 (]: Writing runtime sql for node "model.dvd_kpi.stg_rental"
+[0m04:48:58.695033 [debug] [Thread-3 (]: Writing runtime sql for node "model.dvd_kpi.stg_payment"
+[0m04:48:58.709863 [debug] [Thread-3 (]: Using postgres connection "model.dvd_kpi.stg_payment"
+[0m04:48:58.711680 [debug] [Thread-3 (]: On model.dvd_kpi.stg_payment: BEGIN
+[0m04:48:58.712308 [debug] [Thread-4 (]: Using postgres connection "model.dvd_kpi.stg_rental"
+[0m04:48:58.713592 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m04:48:58.714216 [debug] [Thread-1 (]: Using postgres connection "model.dvd_kpi.stg_film"
+[0m04:48:58.715914 [debug] [Thread-4 (]: On model.dvd_kpi.stg_rental: BEGIN
+[0m04:48:58.717595 [debug] [Thread-2 (]: Using postgres connection "model.dvd_kpi.stg_inventory"
+[0m04:48:58.723063 [debug] [Thread-1 (]: On model.dvd_kpi.stg_film: BEGIN
+[0m04:48:58.726374 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m04:48:58.727870 [debug] [Thread-3 (]: SQL status: BEGIN in 0.014 seconds
+[0m04:48:58.730500 [debug] [Thread-2 (]: On model.dvd_kpi.stg_inventory: BEGIN
+[0m04:48:58.733079 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m04:48:58.736816 [debug] [Thread-3 (]: Using postgres connection "model.dvd_kpi.stg_payment"
+[0m04:48:58.738408 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m04:48:58.742180 [debug] [Thread-3 (]: On model.dvd_kpi.stg_payment: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "model.dvd_kpi.stg_payment"} */
+
+  create view "dvdrental"."dbt_staging"."stg_payment__dbt_tmp"
+    
+    
+  as (
+    select
+    payment_id::integer as payment_id,
+    customer_id::integer as customer_id,
+    staff_id::integer as staff_id,
+    rental_id::integer as rental_id,
+    amount::numeric(12, 2) as amount,
+    payment_date::timestamp as payment_date
+from "dvdrental"."public"."payment"
+  );
+[0m04:48:58.743643 [debug] [Thread-4 (]: SQL status: BEGIN in 0.017 seconds
+[0m04:48:58.746955 [debug] [Thread-4 (]: Using postgres connection "model.dvd_kpi.stg_rental"
+[0m04:48:58.748191 [debug] [Thread-1 (]: SQL status: BEGIN in 0.015 seconds
+[0m04:48:58.749157 [debug] [Thread-4 (]: On model.dvd_kpi.stg_rental: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "model.dvd_kpi.stg_rental"} */
+
+  create view "dvdrental"."dbt_staging"."stg_rental__dbt_tmp"
+    
+    
+  as (
+    select
+    rental_id::integer as rental_id,
+    rental_date::timestamp as rental_date,
+    inventory_id::integer as inventory_id,
+    customer_id::integer as customer_id,
+    return_date::timestamp as return_date,
+    staff_id::integer as staff_id
+from "dvdrental"."public"."rental"
+  );
+[0m04:48:58.750694 [debug] [Thread-1 (]: Using postgres connection "model.dvd_kpi.stg_film"
+[0m04:48:58.753731 [debug] [Thread-2 (]: SQL status: BEGIN in 0.015 seconds
+[0m04:48:58.754895 [debug] [Thread-1 (]: On model.dvd_kpi.stg_film: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "model.dvd_kpi.stg_film"} */
+
+  create view "dvdrental"."dbt_staging"."stg_film__dbt_tmp"
+    
+    
+  as (
+    select
+    film_id::integer as film_id,
+    title::varchar as film_title,
+    rental_duration::integer as rental_duration,
+    rating::varchar as rating
+from "dvdrental"."public"."film"
+  );
+[0m04:48:58.756591 [debug] [Thread-2 (]: Using postgres connection "model.dvd_kpi.stg_inventory"
+[0m04:48:58.759479 [debug] [Thread-2 (]: On model.dvd_kpi.stg_inventory: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "model.dvd_kpi.stg_inventory"} */
+
+  create view "dvdrental"."dbt_staging"."stg_inventory__dbt_tmp"
+    
+    
+  as (
+    select
+    inventory_id::integer as inventory_id,
+    film_id::integer as film_id,
+    store_id::integer as store_id
+from "dvdrental"."public"."inventory"
+  );
+[0m04:48:58.767177 [debug] [Thread-3 (]: SQL status: CREATE VIEW in 0.021 seconds
+[0m04:48:58.767879 [debug] [Thread-4 (]: SQL status: CREATE VIEW in 0.015 seconds
+[0m04:48:58.768509 [debug] [Thread-1 (]: SQL status: CREATE VIEW in 0.010 seconds
+[0m04:48:58.769070 [debug] [Thread-2 (]: SQL status: CREATE VIEW in 0.008 seconds
+[0m04:48:58.780041 [debug] [Thread-3 (]: Using postgres connection "model.dvd_kpi.stg_payment"
+[0m04:48:58.785407 [debug] [Thread-4 (]: Using postgres connection "model.dvd_kpi.stg_rental"
+[0m04:48:58.790824 [debug] [Thread-1 (]: Using postgres connection "model.dvd_kpi.stg_film"
+[0m04:48:58.795850 [debug] [Thread-2 (]: Using postgres connection "model.dvd_kpi.stg_inventory"
+[0m04:48:58.797221 [debug] [Thread-3 (]: On model.dvd_kpi.stg_payment: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "model.dvd_kpi.stg_payment"} */
+alter table "dvdrental"."dbt_staging"."stg_payment__dbt_tmp" rename to "stg_payment"
+[0m04:48:58.798697 [debug] [Thread-4 (]: On model.dvd_kpi.stg_rental: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "model.dvd_kpi.stg_rental"} */
+alter table "dvdrental"."dbt_staging"."stg_rental__dbt_tmp" rename to "stg_rental"
+[0m04:48:58.800249 [debug] [Thread-1 (]: On model.dvd_kpi.stg_film: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "model.dvd_kpi.stg_film"} */
+alter table "dvdrental"."dbt_staging"."stg_film__dbt_tmp" rename to "stg_film"
+[0m04:48:58.801694 [debug] [Thread-2 (]: On model.dvd_kpi.stg_inventory: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "model.dvd_kpi.stg_inventory"} */
+alter table "dvdrental"."dbt_staging"."stg_inventory__dbt_tmp" rename to "stg_inventory"
+[0m04:48:58.804610 [debug] [Thread-3 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m04:48:58.805287 [debug] [Thread-4 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m04:48:58.806446 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.000 seconds
+[0m04:48:58.808257 [debug] [Thread-2 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m04:48:58.836844 [debug] [Thread-3 (]: On model.dvd_kpi.stg_payment: COMMIT
+[0m04:48:58.837318 [debug] [Thread-4 (]: On model.dvd_kpi.stg_rental: COMMIT
+[0m04:48:58.839402 [debug] [Thread-1 (]: On model.dvd_kpi.stg_film: COMMIT
+[0m04:48:58.841942 [debug] [Thread-2 (]: On model.dvd_kpi.stg_inventory: COMMIT
+[0m04:48:58.842940 [debug] [Thread-3 (]: Using postgres connection "model.dvd_kpi.stg_payment"
+[0m04:48:58.844046 [debug] [Thread-4 (]: Using postgres connection "model.dvd_kpi.stg_rental"
+[0m04:48:58.845313 [debug] [Thread-1 (]: Using postgres connection "model.dvd_kpi.stg_film"
+[0m04:48:58.846774 [debug] [Thread-2 (]: Using postgres connection "model.dvd_kpi.stg_inventory"
+[0m04:48:58.848095 [debug] [Thread-3 (]: On model.dvd_kpi.stg_payment: COMMIT
+[0m04:48:58.849245 [debug] [Thread-4 (]: On model.dvd_kpi.stg_rental: COMMIT
+[0m04:48:58.850375 [debug] [Thread-1 (]: On model.dvd_kpi.stg_film: COMMIT
+[0m04:48:58.851712 [debug] [Thread-2 (]: On model.dvd_kpi.stg_inventory: COMMIT
+[0m04:48:58.856386 [debug] [Thread-3 (]: SQL status: COMMIT in 0.003 seconds
+[0m04:48:58.857436 [debug] [Thread-2 (]: SQL status: COMMIT in 0.002 seconds
+[0m04:48:58.857849 [debug] [Thread-4 (]: SQL status: COMMIT in 0.004 seconds
+[0m04:48:58.863522 [debug] [Thread-1 (]: SQL status: COMMIT in 0.009 seconds
+[0m04:48:58.865623 [debug] [Thread-3 (]: Applying DROP to: "dvdrental"."dbt_staging"."stg_payment__dbt_backup"
+[0m04:48:58.869379 [debug] [Thread-2 (]: Applying DROP to: "dvdrental"."dbt_staging"."stg_inventory__dbt_backup"
+[0m04:48:58.873044 [debug] [Thread-4 (]: Applying DROP to: "dvdrental"."dbt_staging"."stg_rental__dbt_backup"
+[0m04:48:58.877495 [debug] [Thread-1 (]: Applying DROP to: "dvdrental"."dbt_staging"."stg_film__dbt_backup"
+[0m04:48:58.883825 [debug] [Thread-3 (]: Using postgres connection "model.dvd_kpi.stg_payment"
+[0m04:48:58.884872 [debug] [Thread-2 (]: Using postgres connection "model.dvd_kpi.stg_inventory"
+[0m04:48:58.886397 [debug] [Thread-4 (]: Using postgres connection "model.dvd_kpi.stg_rental"
+[0m04:48:58.888075 [debug] [Thread-1 (]: Using postgres connection "model.dvd_kpi.stg_film"
+[0m04:48:58.889422 [debug] [Thread-3 (]: On model.dvd_kpi.stg_payment: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "model.dvd_kpi.stg_payment"} */
+drop view if exists "dvdrental"."dbt_staging"."stg_payment__dbt_backup" cascade
+[0m04:48:58.890583 [debug] [Thread-2 (]: On model.dvd_kpi.stg_inventory: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "model.dvd_kpi.stg_inventory"} */
+drop view if exists "dvdrental"."dbt_staging"."stg_inventory__dbt_backup" cascade
+[0m04:48:58.891846 [debug] [Thread-4 (]: On model.dvd_kpi.stg_rental: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "model.dvd_kpi.stg_rental"} */
+drop view if exists "dvdrental"."dbt_staging"."stg_rental__dbt_backup" cascade
+[0m04:48:58.892831 [debug] [Thread-1 (]: On model.dvd_kpi.stg_film: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "model.dvd_kpi.stg_film"} */
+drop view if exists "dvdrental"."dbt_staging"."stg_film__dbt_backup" cascade
+[0m04:48:58.895750 [debug] [Thread-2 (]: SQL status: DROP VIEW in 0.000 seconds
+[0m04:48:58.896189 [debug] [Thread-3 (]: SQL status: DROP VIEW in 0.002 seconds
+[0m04:48:58.897124 [debug] [Thread-4 (]: SQL status: DROP VIEW in 0.000 seconds
+[0m04:48:58.898361 [debug] [Thread-1 (]: SQL status: DROP VIEW in 0.000 seconds
+[0m04:48:58.901381 [debug] [Thread-2 (]: On model.dvd_kpi.stg_inventory: Close
+[0m04:48:58.903517 [debug] [Thread-3 (]: On model.dvd_kpi.stg_payment: Close
+[0m04:48:58.905354 [debug] [Thread-4 (]: On model.dvd_kpi.stg_rental: Close
+[0m04:48:58.907720 [debug] [Thread-1 (]: On model.dvd_kpi.stg_film: Close
+[0m04:48:58.912343 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '0839a5f8-e064-4060-987c-f6cec716a951', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f64775da390>]}
+[0m04:48:58.912965 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '0839a5f8-e064-4060-987c-f6cec716a951', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f645e5cb020>]}
+[0m04:48:58.914216 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '0839a5f8-e064-4060-987c-f6cec716a951', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f645e5ca3f0>]}
+[0m04:48:58.915606 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '0839a5f8-e064-4060-987c-f6cec716a951', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f645e5d20c0>]}
+[0m04:48:58.917149 [info ] [Thread-2 (]: 2 of 4 OK created sql view model dbt_staging.stg_inventory ..................... [[32mCREATE VIEW[0m in 0.33s]
+[0m04:48:58.918929 [info ] [Thread-3 (]: 3 of 4 OK created sql view model dbt_staging.stg_payment ....................... [[32mCREATE VIEW[0m in 0.33s]
+[0m04:48:58.920645 [info ] [Thread-4 (]: 4 of 4 OK created sql view model dbt_staging.stg_rental ........................ [[32mCREATE VIEW[0m in 0.34s]
+[0m04:48:58.921945 [info ] [Thread-1 (]: 1 of 4 OK created sql view model dbt_staging.stg_film .......................... [[32mCREATE VIEW[0m in 0.34s]
+[0m04:48:58.923416 [debug] [Thread-2 (]: Finished running node model.dvd_kpi.stg_inventory
+[0m04:48:58.924789 [debug] [Thread-3 (]: Finished running node model.dvd_kpi.stg_payment
+[0m04:48:58.926006 [debug] [Thread-4 (]: Finished running node model.dvd_kpi.stg_rental
+[0m04:48:58.927250 [debug] [Thread-1 (]: Finished running node model.dvd_kpi.stg_film
+[0m04:48:58.932888 [debug] [MainThread]: Using postgres connection "master"
+[0m04:48:58.934138 [debug] [MainThread]: On master: BEGIN
+[0m04:48:58.935051 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m04:48:58.941810 [debug] [MainThread]: SQL status: BEGIN in 0.007 seconds
+[0m04:48:58.943061 [debug] [MainThread]: On master: COMMIT
+[0m04:48:58.944011 [debug] [MainThread]: Using postgres connection "master"
+[0m04:48:58.944995 [debug] [MainThread]: On master: COMMIT
+[0m04:48:58.946118 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m04:48:58.947042 [debug] [MainThread]: On master: Close
+[0m04:48:58.948390 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m04:48:58.949610 [debug] [MainThread]: Connection 'model.dvd_kpi.stg_film' was properly closed.
+[0m04:48:58.950487 [debug] [MainThread]: Connection 'model.dvd_kpi.stg_inventory' was properly closed.
+[0m04:48:58.951464 [debug] [MainThread]: Connection 'model.dvd_kpi.stg_payment' was properly closed.
+[0m04:48:58.952365 [debug] [MainThread]: Connection 'model.dvd_kpi.stg_rental' was properly closed.
+[0m04:48:58.953508 [info ] [MainThread]: 
+[0m04:48:58.954521 [info ] [MainThread]: Finished running 4 view models in 0 hours 0 minutes and 0.62 seconds (0.62s).
+[0m04:48:58.956351 [debug] [MainThread]: Command end result
+[0m04:48:58.993472 [debug] [MainThread]: Wrote artifact WritableManifest to /usr/app/dvd_kpi/target/manifest.json
+[0m04:48:59.007362 [debug] [MainThread]: Wrote artifact SemanticManifest to /usr/app/dvd_kpi/target/semantic_manifest.json
+[0m04:48:59.024892 [debug] [MainThread]: Wrote artifact RunExecutionResult to /usr/app/dvd_kpi/target/run_results.json
+[0m04:48:59.027024 [info ] [MainThread]: 
+[0m04:48:59.029583 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m04:48:59.031919 [info ] [MainThread]: 
+[0m04:48:59.035047 [info ] [MainThread]: Done. PASS=4 WARN=0 ERROR=0 SKIP=0 TOTAL=4
+[0m04:48:59.038937 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 1.9336594, "process_in_blocks": "784", "process_kernel_time": 0.297202, "process_mem_max_rss": "116252", "process_out_blocks": "112", "process_user_time": 2.449356}
+[0m04:48:59.041189 [debug] [MainThread]: Command `dbt run` succeeded at 04:48:59.040941 after 1.94 seconds
+[0m04:48:59.043353 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f6476d578c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f64769a9160>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f645e6c2cf0>]}
+[0m04:48:59.045488 [debug] [MainThread]: Flushing usage events
+[0m04:49:00.093768 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m05:28:22.382733 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8e7c716c30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8e7dc64470>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8e7c716a50>]}
+
+
+============================== 05:28:22.393244 | 50652cbd-dc71-4c73-9c2d-734bf2fa4e9e ==============================
+[0m05:28:22.393244 [info ] [MainThread]: Running with dbt=1.9.0
+[0m05:28:22.394861 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/root/.dbt', 'version_check': 'True', 'warn_error': 'None', 'log_path': '/usr/app/dvd_kpi/logs', 'debug': 'False', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'log_format': 'default', 'static_parser': 'True', 'introspect': 'True', 'invocation_command': 'dbt seed --full-refresh', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m05:28:22.633344 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '50652cbd-dc71-4c73-9c2d-734bf2fa4e9e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8e7bb5eae0>]}
+[0m05:28:22.723518 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '50652cbd-dc71-4c73-9c2d-734bf2fa4e9e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8e7bbd6f90>]}
+[0m05:28:22.726065 [info ] [MainThread]: Registered adapter: postgres=1.9.0
+[0m05:28:22.872969 [debug] [MainThread]: checksum: c99e828bba267739642b5a3ce85f17518764ea526e0e6c4fdc649171c1a66bff, vars: {}, profile: , target: , version: 1.9.0
+[0m05:28:23.200835 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 3 files added, 0 files changed.
+[0m05:28:23.202647 [debug] [MainThread]: Partial parsing: added file: dvd_kpi://models/marts/fct_rental_activity.sql
+[0m05:28:23.203748 [debug] [MainThread]: Partial parsing: added file: dvd_kpi://seeds/metric_definition.csv
+[0m05:28:23.204800 [debug] [MainThread]: Partial parsing: added file: dvd_kpi://models/intermediate/int_payment_by_rental.sql
+[0m05:28:23.824154 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '50652cbd-dc71-4c73-9c2d-734bf2fa4e9e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8e78680950>]}
+[0m05:28:23.936303 [debug] [MainThread]: Wrote artifact WritableManifest to /usr/app/dvd_kpi/target/manifest.json
+[0m05:28:23.944362 [debug] [MainThread]: Wrote artifact SemanticManifest to /usr/app/dvd_kpi/target/semantic_manifest.json
+[0m05:28:24.000792 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '50652cbd-dc71-4c73-9c2d-734bf2fa4e9e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8e7873b710>]}
+[0m05:28:24.002168 [info ] [MainThread]: Found 6 models, 1 seed, 4 sources, 429 macros
+[0m05:28:24.003844 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '50652cbd-dc71-4c73-9c2d-734bf2fa4e9e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8e78682f60>]}
+[0m05:28:24.008263 [info ] [MainThread]: 
+[0m05:28:24.010080 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m05:28:24.011597 [info ] [MainThread]: 
+[0m05:28:24.013344 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m05:28:24.016860 [debug] [ThreadPool]: Acquiring new postgres connection 'list_dvdrental'
+[0m05:28:24.100156 [debug] [ThreadPool]: Using postgres connection "list_dvdrental"
+[0m05:28:24.101565 [debug] [ThreadPool]: On list_dvdrental: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "connection_name": "list_dvdrental"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m05:28:24.102589 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m05:28:24.116996 [debug] [ThreadPool]: SQL status: SELECT 5 in 0.014 seconds
+[0m05:28:24.119586 [debug] [ThreadPool]: On list_dvdrental: Close
+[0m05:28:24.121418 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_dvdrental, now create_dvdrental_dbt_metadata)
+[0m05:28:24.123054 [debug] [ThreadPool]: Creating schema "database: "dvdrental"
+schema: "dbt_metadata"
+"
+[0m05:28:24.129982 [debug] [ThreadPool]: Using postgres connection "create_dvdrental_dbt_metadata"
+[0m05:28:24.131199 [debug] [ThreadPool]: On create_dvdrental_dbt_metadata: BEGIN
+[0m05:28:24.132344 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m05:28:24.139944 [debug] [ThreadPool]: SQL status: BEGIN in 0.008 seconds
+[0m05:28:24.141621 [debug] [ThreadPool]: Using postgres connection "create_dvdrental_dbt_metadata"
+[0m05:28:24.142772 [debug] [ThreadPool]: On create_dvdrental_dbt_metadata: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "connection_name": "create_dvdrental_dbt_metadata"} */
+create schema if not exists "dbt_metadata"
+[0m05:28:24.145436 [debug] [ThreadPool]: SQL status: CREATE SCHEMA in 0.002 seconds
+[0m05:28:24.147329 [debug] [ThreadPool]: On create_dvdrental_dbt_metadata: COMMIT
+[0m05:28:24.148394 [debug] [ThreadPool]: Using postgres connection "create_dvdrental_dbt_metadata"
+[0m05:28:24.149423 [debug] [ThreadPool]: On create_dvdrental_dbt_metadata: COMMIT
+[0m05:28:24.151786 [debug] [ThreadPool]: SQL status: COMMIT in 0.001 seconds
+[0m05:28:24.152948 [debug] [ThreadPool]: On create_dvdrental_dbt_metadata: Close
+[0m05:28:24.160158 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_dvdrental_dbt_metadata, now list_dvdrental_dbt_metadata)
+[0m05:28:24.160922 [debug] [ThreadPool]: Acquiring new postgres connection 'list_dvdrental_dbt_intermediate'
+[0m05:28:24.161524 [debug] [ThreadPool]: Acquiring new postgres connection 'list_dvdrental_dbt_metrics'
+[0m05:28:24.162300 [debug] [ThreadPool]: Acquiring new postgres connection 'list_dvdrental_dbt_staging'
+[0m05:28:24.168410 [debug] [ThreadPool]: Using postgres connection "list_dvdrental_dbt_metadata"
+[0m05:28:24.171246 [debug] [ThreadPool]: Using postgres connection "list_dvdrental_dbt_intermediate"
+[0m05:28:24.174163 [debug] [ThreadPool]: Using postgres connection "list_dvdrental_dbt_metrics"
+[0m05:28:24.176640 [debug] [ThreadPool]: Using postgres connection "list_dvdrental_dbt_staging"
+[0m05:28:24.177983 [debug] [ThreadPool]: On list_dvdrental_dbt_metadata: BEGIN
+[0m05:28:24.179142 [debug] [ThreadPool]: On list_dvdrental_dbt_intermediate: BEGIN
+[0m05:28:24.180181 [debug] [ThreadPool]: On list_dvdrental_dbt_metrics: BEGIN
+[0m05:28:24.181249 [debug] [ThreadPool]: On list_dvdrental_dbt_staging: BEGIN
+[0m05:28:24.182343 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m05:28:24.183456 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m05:28:24.184550 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m05:28:24.185579 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m05:28:24.192875 [debug] [ThreadPool]: SQL status: BEGIN in 0.010 seconds
+[0m05:28:24.193443 [debug] [ThreadPool]: SQL status: BEGIN in 0.010 seconds
+[0m05:28:24.194669 [debug] [ThreadPool]: SQL status: BEGIN in 0.009 seconds
+[0m05:28:24.195276 [debug] [ThreadPool]: Using postgres connection "list_dvdrental_dbt_metadata"
+[0m05:28:24.195764 [debug] [ThreadPool]: SQL status: BEGIN in 0.011 seconds
+[0m05:28:24.197206 [debug] [ThreadPool]: Using postgres connection "list_dvdrental_dbt_intermediate"
+[0m05:28:24.198251 [debug] [ThreadPool]: Using postgres connection "list_dvdrental_dbt_staging"
+[0m05:28:24.199377 [debug] [ThreadPool]: On list_dvdrental_dbt_metadata: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "connection_name": "list_dvdrental_dbt_metadata"} */
+select
+      'dvdrental' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'dbt_metadata'
+    union all
+    select
+      'dvdrental' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'dbt_metadata'
+    union all
+    select
+      'dvdrental' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'dbt_metadata'
+  
+[0m05:28:24.200652 [debug] [ThreadPool]: Using postgres connection "list_dvdrental_dbt_metrics"
+[0m05:28:24.201856 [debug] [ThreadPool]: On list_dvdrental_dbt_intermediate: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "connection_name": "list_dvdrental_dbt_intermediate"} */
+select
+      'dvdrental' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'dbt_intermediate'
+    union all
+    select
+      'dvdrental' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'dbt_intermediate'
+    union all
+    select
+      'dvdrental' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'dbt_intermediate'
+  
+[0m05:28:24.203521 [debug] [ThreadPool]: On list_dvdrental_dbt_staging: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "connection_name": "list_dvdrental_dbt_staging"} */
+select
+      'dvdrental' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'dbt_staging'
+    union all
+    select
+      'dvdrental' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'dbt_staging'
+    union all
+    select
+      'dvdrental' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'dbt_staging'
+  
+[0m05:28:24.205725 [debug] [ThreadPool]: On list_dvdrental_dbt_metrics: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "connection_name": "list_dvdrental_dbt_metrics"} */
+select
+      'dvdrental' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'dbt_metrics'
+    union all
+    select
+      'dvdrental' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'dbt_metrics'
+    union all
+    select
+      'dvdrental' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'dbt_metrics'
+  
+[0m05:28:24.208422 [debug] [ThreadPool]: SQL status: SELECT 0 in 0.004 seconds
+[0m05:28:24.209773 [debug] [ThreadPool]: SQL status: SELECT 0 in 0.003 seconds
+[0m05:28:24.210640 [debug] [ThreadPool]: SQL status: SELECT 4 in 0.003 seconds
+[0m05:28:24.213852 [debug] [ThreadPool]: On list_dvdrental_dbt_metadata: ROLLBACK
+[0m05:28:24.214322 [debug] [ThreadPool]: SQL status: SELECT 0 in 0.003 seconds
+[0m05:28:24.216087 [debug] [ThreadPool]: On list_dvdrental_dbt_intermediate: ROLLBACK
+[0m05:28:24.218538 [debug] [ThreadPool]: On list_dvdrental_dbt_staging: ROLLBACK
+[0m05:28:24.219883 [debug] [ThreadPool]: On list_dvdrental_dbt_metadata: Close
+[0m05:28:24.221494 [debug] [ThreadPool]: On list_dvdrental_dbt_metrics: ROLLBACK
+[0m05:28:24.222737 [debug] [ThreadPool]: On list_dvdrental_dbt_intermediate: Close
+[0m05:28:24.223510 [debug] [ThreadPool]: On list_dvdrental_dbt_staging: Close
+[0m05:28:24.225363 [debug] [ThreadPool]: On list_dvdrental_dbt_metrics: Close
+[0m05:28:24.234510 [debug] [MainThread]: Using postgres connection "master"
+[0m05:28:24.235653 [debug] [MainThread]: On master: BEGIN
+[0m05:28:24.236691 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m05:28:24.242749 [debug] [MainThread]: SQL status: BEGIN in 0.006 seconds
+[0m05:28:24.244265 [debug] [MainThread]: Using postgres connection "master"
+[0m05:28:24.245295 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m05:28:24.257231 [debug] [MainThread]: SQL status: SELECT 41 in 0.011 seconds
+[0m05:28:24.261261 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '50652cbd-dc71-4c73-9c2d-734bf2fa4e9e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8e7a42d460>]}
+[0m05:28:24.262538 [debug] [MainThread]: On master: ROLLBACK
+[0m05:28:24.263839 [debug] [MainThread]: Using postgres connection "master"
+[0m05:28:24.264878 [debug] [MainThread]: On master: BEGIN
+[0m05:28:24.266320 [debug] [MainThread]: SQL status: BEGIN in 0.000 seconds
+[0m05:28:24.267490 [debug] [MainThread]: On master: COMMIT
+[0m05:28:24.268372 [debug] [MainThread]: Using postgres connection "master"
+[0m05:28:24.269220 [debug] [MainThread]: On master: COMMIT
+[0m05:28:24.270446 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m05:28:24.271464 [debug] [MainThread]: On master: Close
+[0m05:28:24.275057 [debug] [Thread-1 (]: Began running node seed.dvd_kpi.metric_definition
+[0m05:28:24.276400 [info ] [Thread-1 (]: 1 of 1 START seed file dbt_metadata.metric_definition .......................... [RUN]
+[0m05:28:24.278009 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_dvdrental_dbt_metrics, now seed.dvd_kpi.metric_definition)
+[0m05:28:24.279120 [debug] [Thread-1 (]: Began compiling node seed.dvd_kpi.metric_definition
+[0m05:28:24.280072 [debug] [Thread-1 (]: Began executing node seed.dvd_kpi.metric_definition
+[0m05:28:24.317367 [debug] [Thread-1 (]: Using postgres connection "seed.dvd_kpi.metric_definition"
+[0m05:28:24.318690 [debug] [Thread-1 (]: On seed.dvd_kpi.metric_definition: BEGIN
+[0m05:28:24.319796 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m05:28:24.326019 [debug] [Thread-1 (]: SQL status: BEGIN in 0.006 seconds
+[0m05:28:24.327758 [debug] [Thread-1 (]: Using postgres connection "seed.dvd_kpi.metric_definition"
+[0m05:28:24.328907 [debug] [Thread-1 (]: On seed.dvd_kpi.metric_definition: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "seed.dvd_kpi.metric_definition"} */
+
+    create table "dvdrental"."dbt_metadata"."metric_definition" ("metric_key" varchar(10),"metric_name" text,"metric_label" text,"description" text,"formula" text,"unit" text)
+  
+[0m05:28:24.338718 [debug] [Thread-1 (]: SQL status: CREATE TABLE in 0.009 seconds
+[0m05:28:24.358706 [debug] [Thread-1 (]: Using postgres connection "seed.dvd_kpi.metric_definition"
+[0m05:28:24.360124 [debug] [Thread-1 (]: On seed.dvd_kpi.metric_definition: 
+          insert into "dvdrental"."dbt_metadata"."metric_definition" ("metric_key", "metric_name", "metric_label", "description", "formula", "unit") values
+          (%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s)
+      ...
+[0m05:28:24.362130 [debug] [Thread-1 (]: SQL status: INSERT 0 5 in 0.001 seconds
+[0m05:28:24.368655 [debug] [Thread-1 (]: Writing runtime SQL for node "seed.dvd_kpi.metric_definition"
+[0m05:28:24.415076 [debug] [Thread-1 (]: On seed.dvd_kpi.metric_definition: COMMIT
+[0m05:28:24.416893 [debug] [Thread-1 (]: Using postgres connection "seed.dvd_kpi.metric_definition"
+[0m05:28:24.418246 [debug] [Thread-1 (]: On seed.dvd_kpi.metric_definition: COMMIT
+[0m05:28:24.421342 [debug] [Thread-1 (]: SQL status: COMMIT in 0.002 seconds
+[0m05:28:24.424573 [debug] [Thread-1 (]: On seed.dvd_kpi.metric_definition: Close
+[0m05:28:24.428558 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '50652cbd-dc71-4c73-9c2d-734bf2fa4e9e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8e7c8da510>]}
+[0m05:28:24.430356 [info ] [Thread-1 (]: 1 of 1 OK loaded seed file dbt_metadata.metric_definition ...................... [[32mCREATE 5[0m in 0.15s]
+[0m05:28:24.432628 [debug] [Thread-1 (]: Finished running node seed.dvd_kpi.metric_definition
+[0m05:28:24.436208 [debug] [MainThread]: Using postgres connection "master"
+[0m05:28:24.437750 [debug] [MainThread]: On master: BEGIN
+[0m05:28:24.439000 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m05:28:24.447271 [debug] [MainThread]: SQL status: BEGIN in 0.008 seconds
+[0m05:28:24.449276 [debug] [MainThread]: On master: COMMIT
+[0m05:28:24.450868 [debug] [MainThread]: Using postgres connection "master"
+[0m05:28:24.452327 [debug] [MainThread]: On master: COMMIT
+[0m05:28:24.454109 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m05:28:24.455540 [debug] [MainThread]: On master: Close
+[0m05:28:24.457721 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m05:28:24.459316 [debug] [MainThread]: Connection 'list_dvdrental_dbt_metadata' was properly closed.
+[0m05:28:24.460777 [debug] [MainThread]: Connection 'list_dvdrental_dbt_intermediate' was properly closed.
+[0m05:28:24.462103 [debug] [MainThread]: Connection 'seed.dvd_kpi.metric_definition' was properly closed.
+[0m05:28:24.463156 [debug] [MainThread]: Connection 'list_dvdrental_dbt_staging' was properly closed.
+[0m05:28:24.464402 [info ] [MainThread]: 
+[0m05:28:24.465769 [info ] [MainThread]: Finished running 1 seed in 0 hours 0 minutes and 0.45 seconds (0.45s).
+[0m05:28:24.467930 [debug] [MainThread]: Command end result
+[0m05:28:24.513189 [debug] [MainThread]: Wrote artifact WritableManifest to /usr/app/dvd_kpi/target/manifest.json
+[0m05:28:24.520403 [debug] [MainThread]: Wrote artifact SemanticManifest to /usr/app/dvd_kpi/target/semantic_manifest.json
+[0m05:28:24.533542 [debug] [MainThread]: Wrote artifact RunExecutionResult to /usr/app/dvd_kpi/target/run_results.json
+[0m05:28:24.534734 [info ] [MainThread]: 
+[0m05:28:24.536541 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m05:28:24.538456 [info ] [MainThread]: 
+[0m05:28:24.540109 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[0m05:28:24.543002 [debug] [MainThread]: Resource report: {"command_name": "seed", "command_success": true, "command_wall_clock_time": 2.2740004, "process_in_blocks": "16", "process_kernel_time": 0.277517, "process_mem_max_rss": "113968", "process_out_blocks": "184", "process_user_time": 2.854468}
+[0m05:28:24.544862 [debug] [MainThread]: Command `dbt seed` succeeded at 05:28:24.544656 after 2.28 seconds
+[0m05:28:24.546256 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8e7bd55670>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8e7d62bfb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8e7c023560>]}
+[0m05:28:24.547644 [debug] [MainThread]: Flushing usage events
+[0m05:28:25.677567 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m05:32:43.939731 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc45fd94e60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc45fa350d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc45e4e9b80>]}
+
+
+============================== 05:32:43.943853 | 2c4be157-9bf4-4c09-bf75-c82398d5760f ==============================
+[0m05:32:43.943853 [info ] [MainThread]: Running with dbt=1.9.0
+[0m05:32:43.945185 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/root/.dbt', 'fail_fast': 'False', 'debug': 'False', 'log_path': '/usr/app/dvd_kpi/logs', 'warn_error': 'None', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'introspect': 'True', 'log_format': 'default', 'target_path': 'None', 'invocation_command': 'dbt build', 'send_anonymous_usage_stats': 'True'}
+[0m05:32:44.140461 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '2c4be157-9bf4-4c09-bf75-c82398d5760f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc45fa93590>]}
+[0m05:32:44.209579 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '2c4be157-9bf4-4c09-bf75-c82398d5760f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc45dc4b680>]}
+[0m05:32:44.211477 [info ] [MainThread]: Registered adapter: postgres=1.9.0
+[0m05:32:44.306703 [debug] [MainThread]: checksum: c99e828bba267739642b5a3ce85f17518764ea526e0e6c4fdc649171c1a66bff, vars: {}, profile: , target: , version: 1.9.0
+[0m05:32:44.722703 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 6 files added, 0 files changed.
+[0m05:32:44.724492 [debug] [MainThread]: Partial parsing: added file: dvd_kpi://tests/assert_metric_store_grain.sql
+[0m05:32:44.725639 [debug] [MainThread]: Partial parsing: added file: dvd_kpi://tests/assert_metric_company_grain.sql
+[0m05:32:44.726764 [debug] [MainThread]: Partial parsing: added file: dvd_kpi://tests/assert_late_return_rate_range.sql
+[0m05:32:44.728043 [debug] [MainThread]: Partial parsing: added file: dvd_kpi://models/marts/metric_store_monthly.sql
+[0m05:32:44.729338 [debug] [MainThread]: Partial parsing: added file: dvd_kpi://models/schema.yml
+[0m05:32:44.730543 [debug] [MainThread]: Partial parsing: added file: dvd_kpi://models/marts/metric_company_monthly.sql
+[0m05:32:45.481137 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '2c4be157-9bf4-4c09-bf75-c82398d5760f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc45a6f11f0>]}
+[0m05:32:45.628889 [debug] [MainThread]: Wrote artifact WritableManifest to /usr/app/dvd_kpi/target/manifest.json
+[0m05:32:45.637915 [debug] [MainThread]: Wrote artifact SemanticManifest to /usr/app/dvd_kpi/target/semantic_manifest.json
+[0m05:32:45.690614 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '2c4be157-9bf4-4c09-bf75-c82398d5760f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc45a693c80>]}
+[0m05:32:45.692439 [info ] [MainThread]: Found 8 models, 1 seed, 21 data tests, 4 sources, 429 macros
+[0m05:32:45.699180 [info ] [MainThread]: 
+[0m05:32:45.700847 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m05:32:45.702441 [info ] [MainThread]: 
+[0m05:32:45.704527 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m05:32:45.713125 [debug] [ThreadPool]: Acquiring new postgres connection 'list_dvdrental'
+[0m05:32:45.714024 [debug] [ThreadPool]: Acquiring new postgres connection 'list_dvdrental'
+[0m05:32:45.714794 [debug] [ThreadPool]: Acquiring new postgres connection 'list_dvdrental'
+[0m05:32:45.715760 [debug] [ThreadPool]: Acquiring new postgres connection 'list_dvdrental'
+[0m05:32:45.767396 [debug] [ThreadPool]: Using postgres connection "list_dvdrental"
+[0m05:32:45.767947 [debug] [ThreadPool]: Using postgres connection "list_dvdrental"
+[0m05:32:45.768452 [debug] [ThreadPool]: Using postgres connection "list_dvdrental"
+[0m05:32:45.768983 [debug] [ThreadPool]: Using postgres connection "list_dvdrental"
+[0m05:32:45.769675 [debug] [ThreadPool]: On list_dvdrental: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "connection_name": "list_dvdrental"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m05:32:45.771004 [debug] [ThreadPool]: On list_dvdrental: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "connection_name": "list_dvdrental"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m05:32:45.772299 [debug] [ThreadPool]: On list_dvdrental: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "connection_name": "list_dvdrental"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m05:32:45.773449 [debug] [ThreadPool]: On list_dvdrental: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "connection_name": "list_dvdrental"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m05:32:45.774542 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m05:32:45.775449 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m05:32:45.776526 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m05:32:45.777948 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m05:32:45.788428 [debug] [ThreadPool]: SQL status: SELECT 6 in 0.013 seconds
+[0m05:32:45.789023 [debug] [ThreadPool]: SQL status: SELECT 6 in 0.014 seconds
+[0m05:32:45.789500 [debug] [ThreadPool]: SQL status: SELECT 6 in 0.013 seconds
+[0m05:32:45.791950 [debug] [ThreadPool]: On list_dvdrental: Close
+[0m05:32:45.792378 [debug] [ThreadPool]: SQL status: SELECT 6 in 0.014 seconds
+[0m05:32:45.794648 [debug] [ThreadPool]: On list_dvdrental: Close
+[0m05:32:45.797631 [debug] [ThreadPool]: On list_dvdrental: Close
+[0m05:32:45.800854 [debug] [ThreadPool]: On list_dvdrental: Close
+[0m05:32:45.805224 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_dvdrental, now create_dvdrental_dbt_intermediate)
+[0m05:32:45.805926 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_dvdrental, now create_dvdrental_dbt_metrics)
+[0m05:32:45.807106 [debug] [ThreadPool]: Creating schema "database: "dvdrental"
+schema: "dbt_intermediate"
+"
+[0m05:32:45.808872 [debug] [ThreadPool]: Creating schema "database: "dvdrental"
+schema: "dbt_metrics"
+"
+[0m05:32:45.817509 [debug] [ThreadPool]: Using postgres connection "create_dvdrental_dbt_intermediate"
+[0m05:32:45.823412 [debug] [ThreadPool]: Using postgres connection "create_dvdrental_dbt_metrics"
+[0m05:32:45.824858 [debug] [ThreadPool]: On create_dvdrental_dbt_intermediate: BEGIN
+[0m05:32:45.826327 [debug] [ThreadPool]: On create_dvdrental_dbt_metrics: BEGIN
+[0m05:32:45.827450 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m05:32:45.828649 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m05:32:45.835629 [debug] [ThreadPool]: SQL status: BEGIN in 0.008 seconds
+[0m05:32:45.836304 [debug] [ThreadPool]: SQL status: BEGIN in 0.008 seconds
+[0m05:32:45.837504 [debug] [ThreadPool]: Using postgres connection "create_dvdrental_dbt_intermediate"
+[0m05:32:45.838688 [debug] [ThreadPool]: Using postgres connection "create_dvdrental_dbt_metrics"
+[0m05:32:45.839589 [debug] [ThreadPool]: On create_dvdrental_dbt_intermediate: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "connection_name": "create_dvdrental_dbt_intermediate"} */
+create schema if not exists "dbt_intermediate"
+[0m05:32:45.840991 [debug] [ThreadPool]: On create_dvdrental_dbt_metrics: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "connection_name": "create_dvdrental_dbt_metrics"} */
+create schema if not exists "dbt_metrics"
+[0m05:32:45.842824 [debug] [ThreadPool]: SQL status: CREATE SCHEMA in 0.001 seconds
+[0m05:32:45.843752 [debug] [ThreadPool]: SQL status: CREATE SCHEMA in 0.001 seconds
+[0m05:32:45.844832 [debug] [ThreadPool]: On create_dvdrental_dbt_intermediate: COMMIT
+[0m05:32:45.846431 [debug] [ThreadPool]: On create_dvdrental_dbt_metrics: COMMIT
+[0m05:32:45.847592 [debug] [ThreadPool]: Using postgres connection "create_dvdrental_dbt_intermediate"
+[0m05:32:45.848773 [debug] [ThreadPool]: Using postgres connection "create_dvdrental_dbt_metrics"
+[0m05:32:45.849739 [debug] [ThreadPool]: On create_dvdrental_dbt_intermediate: COMMIT
+[0m05:32:45.850747 [debug] [ThreadPool]: On create_dvdrental_dbt_metrics: COMMIT
+[0m05:32:45.853943 [debug] [ThreadPool]: SQL status: COMMIT in 0.002 seconds
+[0m05:32:45.854762 [debug] [ThreadPool]: SQL status: COMMIT in 0.002 seconds
+[0m05:32:45.855482 [debug] [ThreadPool]: On create_dvdrental_dbt_intermediate: Close
+[0m05:32:45.856628 [debug] [ThreadPool]: On create_dvdrental_dbt_metrics: Close
+[0m05:32:45.861272 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_dvdrental_dbt_metrics, now list_dvdrental_dbt_staging)
+[0m05:32:45.862037 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_dvdrental_dbt_intermediate, now list_dvdrental_dbt_intermediate)
+[0m05:32:45.862663 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_dvdrental, now list_dvdrental_dbt_metrics)
+[0m05:32:45.863332 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_dvdrental, now list_dvdrental_dbt_metadata)
+[0m05:32:45.870422 [debug] [ThreadPool]: Using postgres connection "list_dvdrental_dbt_staging"
+[0m05:32:45.873442 [debug] [ThreadPool]: Using postgres connection "list_dvdrental_dbt_intermediate"
+[0m05:32:45.876344 [debug] [ThreadPool]: Using postgres connection "list_dvdrental_dbt_metrics"
+[0m05:32:45.879433 [debug] [ThreadPool]: Using postgres connection "list_dvdrental_dbt_metadata"
+[0m05:32:45.880739 [debug] [ThreadPool]: On list_dvdrental_dbt_staging: BEGIN
+[0m05:32:45.881982 [debug] [ThreadPool]: On list_dvdrental_dbt_intermediate: BEGIN
+[0m05:32:45.883259 [debug] [ThreadPool]: On list_dvdrental_dbt_metrics: BEGIN
+[0m05:32:45.884369 [debug] [ThreadPool]: On list_dvdrental_dbt_metadata: BEGIN
+[0m05:32:45.885445 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m05:32:45.886677 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m05:32:45.887711 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m05:32:45.888984 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m05:32:45.896790 [debug] [ThreadPool]: SQL status: BEGIN in 0.011 seconds
+[0m05:32:45.897363 [debug] [ThreadPool]: SQL status: BEGIN in 0.011 seconds
+[0m05:32:45.898569 [debug] [ThreadPool]: SQL status: BEGIN in 0.011 seconds
+[0m05:32:45.899338 [debug] [ThreadPool]: Using postgres connection "list_dvdrental_dbt_staging"
+[0m05:32:45.899884 [debug] [ThreadPool]: SQL status: BEGIN in 0.011 seconds
+[0m05:32:45.901392 [debug] [ThreadPool]: Using postgres connection "list_dvdrental_dbt_intermediate"
+[0m05:32:45.903133 [debug] [ThreadPool]: Using postgres connection "list_dvdrental_dbt_metrics"
+[0m05:32:45.904307 [debug] [ThreadPool]: On list_dvdrental_dbt_staging: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "connection_name": "list_dvdrental_dbt_staging"} */
+select
+      'dvdrental' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'dbt_staging'
+    union all
+    select
+      'dvdrental' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'dbt_staging'
+    union all
+    select
+      'dvdrental' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'dbt_staging'
+  
+[0m05:32:45.905475 [debug] [ThreadPool]: Using postgres connection "list_dvdrental_dbt_metadata"
+[0m05:32:45.906746 [debug] [ThreadPool]: On list_dvdrental_dbt_intermediate: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "connection_name": "list_dvdrental_dbt_intermediate"} */
+select
+      'dvdrental' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'dbt_intermediate'
+    union all
+    select
+      'dvdrental' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'dbt_intermediate'
+    union all
+    select
+      'dvdrental' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'dbt_intermediate'
+  
+[0m05:32:45.908018 [debug] [ThreadPool]: On list_dvdrental_dbt_metrics: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "connection_name": "list_dvdrental_dbt_metrics"} */
+select
+      'dvdrental' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'dbt_metrics'
+    union all
+    select
+      'dvdrental' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'dbt_metrics'
+    union all
+    select
+      'dvdrental' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'dbt_metrics'
+  
+[0m05:32:45.910373 [debug] [ThreadPool]: On list_dvdrental_dbt_metadata: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "connection_name": "list_dvdrental_dbt_metadata"} */
+select
+      'dvdrental' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'dbt_metadata'
+    union all
+    select
+      'dvdrental' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'dbt_metadata'
+    union all
+    select
+      'dvdrental' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'dbt_metadata'
+  
+[0m05:32:45.913111 [debug] [ThreadPool]: SQL status: SELECT 4 in 0.004 seconds
+[0m05:32:45.917351 [debug] [ThreadPool]: On list_dvdrental_dbt_staging: ROLLBACK
+[0m05:32:45.917956 [debug] [ThreadPool]: SQL status: SELECT 0 in 0.004 seconds
+[0m05:32:45.918440 [debug] [ThreadPool]: SQL status: SELECT 0 in 0.006 seconds
+[0m05:32:45.918955 [debug] [ThreadPool]: SQL status: SELECT 1 in 0.004 seconds
+[0m05:32:45.920536 [debug] [ThreadPool]: On list_dvdrental_dbt_staging: Close
+[0m05:32:45.922643 [debug] [ThreadPool]: On list_dvdrental_dbt_metrics: ROLLBACK
+[0m05:32:45.925097 [debug] [ThreadPool]: On list_dvdrental_dbt_intermediate: ROLLBACK
+[0m05:32:45.928032 [debug] [ThreadPool]: On list_dvdrental_dbt_metadata: ROLLBACK
+[0m05:32:45.931636 [debug] [ThreadPool]: On list_dvdrental_dbt_metrics: Close
+[0m05:32:45.932995 [debug] [ThreadPool]: On list_dvdrental_dbt_intermediate: Close
+[0m05:32:45.934039 [debug] [ThreadPool]: On list_dvdrental_dbt_metadata: Close
+[0m05:32:45.943419 [debug] [MainThread]: Using postgres connection "master"
+[0m05:32:45.944977 [debug] [MainThread]: On master: BEGIN
+[0m05:32:45.946053 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m05:32:45.952357 [debug] [MainThread]: SQL status: BEGIN in 0.006 seconds
+[0m05:32:45.954090 [debug] [MainThread]: Using postgres connection "master"
+[0m05:32:45.955370 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m05:32:45.967378 [debug] [MainThread]: SQL status: SELECT 41 in 0.011 seconds
+[0m05:32:45.971528 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '2c4be157-9bf4-4c09-bf75-c82398d5760f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc45c0984d0>]}
+[0m05:32:45.972831 [debug] [MainThread]: On master: ROLLBACK
+[0m05:32:45.973906 [debug] [MainThread]: Using postgres connection "master"
+[0m05:32:45.974862 [debug] [MainThread]: On master: BEGIN
+[0m05:32:45.976112 [debug] [MainThread]: SQL status: BEGIN in 0.000 seconds
+[0m05:32:45.977593 [debug] [MainThread]: On master: COMMIT
+[0m05:32:45.978945 [debug] [MainThread]: Using postgres connection "master"
+[0m05:32:45.979949 [debug] [MainThread]: On master: COMMIT
+[0m05:32:45.981194 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m05:32:45.982218 [debug] [MainThread]: On master: Close
+[0m05:32:45.985929 [debug] [Thread-1 (]: Began running node model.dvd_kpi.stg_film
+[0m05:32:45.986397 [debug] [Thread-2 (]: Began running node model.dvd_kpi.stg_inventory
+[0m05:32:45.986825 [debug] [Thread-3 (]: Began running node model.dvd_kpi.stg_payment
+[0m05:32:45.987174 [debug] [Thread-4 (]: Began running node model.dvd_kpi.stg_rental
+[0m05:32:45.988218 [info ] [Thread-1 (]: 1 of 30 START sql view model dbt_staging.stg_film .............................. [RUN]
+[0m05:32:45.989677 [info ] [Thread-2 (]: 2 of 30 START sql view model dbt_staging.stg_inventory ......................... [RUN]
+[0m05:32:45.991347 [info ] [Thread-3 (]: 3 of 30 START sql view model dbt_staging.stg_payment ........................... [RUN]
+[0m05:32:45.992908 [info ] [Thread-4 (]: 4 of 30 START sql view model dbt_staging.stg_rental ............................ [RUN]
+[0m05:32:45.994512 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_dvdrental_dbt_metadata, now model.dvd_kpi.stg_film)
+[0m05:32:45.995746 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_dvdrental_dbt_intermediate, now model.dvd_kpi.stg_inventory)
+[0m05:32:45.996817 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly list_dvdrental_dbt_metrics, now model.dvd_kpi.stg_payment)
+[0m05:32:45.998057 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly list_dvdrental_dbt_staging, now model.dvd_kpi.stg_rental)
+[0m05:32:45.999129 [debug] [Thread-1 (]: Began compiling node model.dvd_kpi.stg_film
+[0m05:32:46.000166 [debug] [Thread-2 (]: Began compiling node model.dvd_kpi.stg_inventory
+[0m05:32:46.001274 [debug] [Thread-3 (]: Began compiling node model.dvd_kpi.stg_payment
+[0m05:32:46.002760 [debug] [Thread-4 (]: Began compiling node model.dvd_kpi.stg_rental
+[0m05:32:46.013679 [debug] [Thread-1 (]: Writing injected SQL for node "model.dvd_kpi.stg_film"
+[0m05:32:46.018267 [debug] [Thread-2 (]: Writing injected SQL for node "model.dvd_kpi.stg_inventory"
+[0m05:32:46.022383 [debug] [Thread-3 (]: Writing injected SQL for node "model.dvd_kpi.stg_payment"
+[0m05:32:46.026369 [debug] [Thread-4 (]: Writing injected SQL for node "model.dvd_kpi.stg_rental"
+[0m05:32:46.034377 [debug] [Thread-4 (]: Began executing node model.dvd_kpi.stg_rental
+[0m05:32:46.035456 [debug] [Thread-3 (]: Began executing node model.dvd_kpi.stg_payment
+[0m05:32:46.041714 [debug] [Thread-2 (]: Began executing node model.dvd_kpi.stg_inventory
+[0m05:32:46.071766 [debug] [Thread-1 (]: Began executing node model.dvd_kpi.stg_film
+[0m05:32:46.158540 [debug] [Thread-4 (]: Writing runtime sql for node "model.dvd_kpi.stg_rental"
+[0m05:32:46.159002 [debug] [Thread-3 (]: Writing runtime sql for node "model.dvd_kpi.stg_payment"
+[0m05:32:46.163045 [debug] [Thread-2 (]: Writing runtime sql for node "model.dvd_kpi.stg_inventory"
+[0m05:32:46.167035 [debug] [Thread-1 (]: Writing runtime sql for node "model.dvd_kpi.stg_film"
+[0m05:32:46.174374 [debug] [Thread-4 (]: Using postgres connection "model.dvd_kpi.stg_rental"
+[0m05:32:46.175869 [debug] [Thread-4 (]: On model.dvd_kpi.stg_rental: BEGIN
+[0m05:32:46.176379 [debug] [Thread-3 (]: Using postgres connection "model.dvd_kpi.stg_payment"
+[0m05:32:46.176860 [debug] [Thread-1 (]: Using postgres connection "model.dvd_kpi.stg_film"
+[0m05:32:46.177758 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m05:32:46.178301 [debug] [Thread-2 (]: Using postgres connection "model.dvd_kpi.stg_inventory"
+[0m05:32:46.179138 [debug] [Thread-3 (]: On model.dvd_kpi.stg_payment: BEGIN
+[0m05:32:46.180164 [debug] [Thread-1 (]: On model.dvd_kpi.stg_film: BEGIN
+[0m05:32:46.182641 [debug] [Thread-2 (]: On model.dvd_kpi.stg_inventory: BEGIN
+[0m05:32:46.183952 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m05:32:46.185305 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m05:32:46.186633 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m05:32:46.187342 [debug] [Thread-4 (]: SQL status: BEGIN in 0.010 seconds
+[0m05:32:46.192632 [debug] [Thread-4 (]: Using postgres connection "model.dvd_kpi.stg_rental"
+[0m05:32:46.194359 [debug] [Thread-4 (]: On model.dvd_kpi.stg_rental: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "model.dvd_kpi.stg_rental"} */
+
+  create view "dvdrental"."dbt_staging"."stg_rental__dbt_tmp"
+    
+    
+  as (
+    select
+    rental_id::integer as rental_id,
+    rental_date::timestamp as rental_date,
+    inventory_id::integer as inventory_id,
+    customer_id::integer as customer_id,
+    return_date::timestamp as return_date,
+    staff_id::integer as staff_id
+from "dvdrental"."public"."rental"
+  );
+[0m05:32:46.194987 [debug] [Thread-3 (]: SQL status: BEGIN in 0.011 seconds
+[0m05:32:46.196784 [debug] [Thread-1 (]: SQL status: BEGIN in 0.011 seconds
+[0m05:32:46.197967 [debug] [Thread-3 (]: Using postgres connection "model.dvd_kpi.stg_payment"
+[0m05:32:46.198767 [debug] [Thread-2 (]: SQL status: BEGIN in 0.012 seconds
+[0m05:32:46.199956 [debug] [Thread-1 (]: Using postgres connection "model.dvd_kpi.stg_film"
+[0m05:32:46.201314 [debug] [Thread-3 (]: On model.dvd_kpi.stg_payment: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "model.dvd_kpi.stg_payment"} */
+
+  create view "dvdrental"."dbt_staging"."stg_payment__dbt_tmp"
+    
+    
+  as (
+    select
+    payment_id::integer as payment_id,
+    customer_id::integer as customer_id,
+    staff_id::integer as staff_id,
+    rental_id::integer as rental_id,
+    amount::numeric(12, 2) as amount,
+    payment_date::timestamp as payment_date
+from "dvdrental"."public"."payment"
+  );
+[0m05:32:46.202271 [debug] [Thread-4 (]: SQL status: CREATE VIEW in 0.006 seconds
+[0m05:32:46.202925 [debug] [Thread-2 (]: Using postgres connection "model.dvd_kpi.stg_inventory"
+[0m05:32:46.204263 [debug] [Thread-1 (]: On model.dvd_kpi.stg_film: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "model.dvd_kpi.stg_film"} */
+
+  create view "dvdrental"."dbt_staging"."stg_film__dbt_tmp"
+    
+    
+  as (
+    select
+    film_id::integer as film_id,
+    title::varchar as film_title,
+    rental_duration::integer as rental_duration,
+    rating::varchar as rating
+from "dvdrental"."public"."film"
+  );
+[0m05:32:46.212808 [debug] [Thread-3 (]: SQL status: CREATE VIEW in 0.007 seconds
+[0m05:32:46.215952 [debug] [Thread-4 (]: Using postgres connection "model.dvd_kpi.stg_rental"
+[0m05:32:46.217914 [debug] [Thread-2 (]: On model.dvd_kpi.stg_inventory: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "model.dvd_kpi.stg_inventory"} */
+
+  create view "dvdrental"."dbt_staging"."stg_inventory__dbt_tmp"
+    
+    
+  as (
+    select
+    inventory_id::integer as inventory_id,
+    film_id::integer as film_id,
+    store_id::integer as store_id
+from "dvdrental"."public"."inventory"
+  );
+[0m05:32:46.223232 [debug] [Thread-3 (]: Using postgres connection "model.dvd_kpi.stg_payment"
+[0m05:32:46.223872 [debug] [Thread-1 (]: SQL status: CREATE VIEW in 0.005 seconds
+[0m05:32:46.225054 [debug] [Thread-4 (]: On model.dvd_kpi.stg_rental: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "model.dvd_kpi.stg_rental"} */
+alter table "dvdrental"."dbt_staging"."stg_rental" rename to "stg_rental__dbt_backup"
+[0m05:32:46.227539 [debug] [Thread-3 (]: On model.dvd_kpi.stg_payment: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "model.dvd_kpi.stg_payment"} */
+alter table "dvdrental"."dbt_staging"."stg_payment" rename to "stg_payment__dbt_backup"
+[0m05:32:46.228268 [debug] [Thread-2 (]: SQL status: CREATE VIEW in 0.002 seconds
+[0m05:32:46.232544 [debug] [Thread-1 (]: Using postgres connection "model.dvd_kpi.stg_film"
+[0m05:32:46.235065 [debug] [Thread-4 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m05:32:46.236074 [debug] [Thread-3 (]: SQL status: ALTER TABLE in 0.000 seconds
+[0m05:32:46.239947 [debug] [Thread-2 (]: Using postgres connection "model.dvd_kpi.stg_inventory"
+[0m05:32:46.241744 [debug] [Thread-1 (]: On model.dvd_kpi.stg_film: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "model.dvd_kpi.stg_film"} */
+alter table "dvdrental"."dbt_staging"."stg_film" rename to "stg_film__dbt_backup"
+[0m05:32:46.246430 [debug] [Thread-4 (]: Using postgres connection "model.dvd_kpi.stg_rental"
+[0m05:32:46.251801 [debug] [Thread-3 (]: Using postgres connection "model.dvd_kpi.stg_payment"
+[0m05:32:46.253617 [debug] [Thread-2 (]: On model.dvd_kpi.stg_inventory: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "model.dvd_kpi.stg_inventory"} */
+alter table "dvdrental"."dbt_staging"."stg_inventory" rename to "stg_inventory__dbt_backup"
+[0m05:32:46.255566 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.000 seconds
+[0m05:32:46.256370 [debug] [Thread-4 (]: On model.dvd_kpi.stg_rental: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "model.dvd_kpi.stg_rental"} */
+alter table "dvdrental"."dbt_staging"."stg_rental__dbt_tmp" rename to "stg_rental"
+[0m05:32:46.257648 [debug] [Thread-3 (]: On model.dvd_kpi.stg_payment: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "model.dvd_kpi.stg_payment"} */
+alter table "dvdrental"."dbt_staging"."stg_payment__dbt_tmp" rename to "stg_payment"
+[0m05:32:46.259785 [debug] [Thread-2 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m05:32:46.263651 [debug] [Thread-1 (]: Using postgres connection "model.dvd_kpi.stg_film"
+[0m05:32:46.267204 [debug] [Thread-3 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m05:32:46.267831 [debug] [Thread-4 (]: SQL status: ALTER TABLE in 0.003 seconds
+[0m05:32:46.272247 [debug] [Thread-2 (]: Using postgres connection "model.dvd_kpi.stg_inventory"
+[0m05:32:46.273849 [debug] [Thread-1 (]: On model.dvd_kpi.stg_film: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "model.dvd_kpi.stg_film"} */
+alter table "dvdrental"."dbt_staging"."stg_film__dbt_tmp" rename to "stg_film"
+[0m05:32:46.296899 [debug] [Thread-3 (]: On model.dvd_kpi.stg_payment: COMMIT
+[0m05:32:46.299244 [debug] [Thread-4 (]: On model.dvd_kpi.stg_rental: COMMIT
+[0m05:32:46.300752 [debug] [Thread-2 (]: On model.dvd_kpi.stg_inventory: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "model.dvd_kpi.stg_inventory"} */
+alter table "dvdrental"."dbt_staging"."stg_inventory__dbt_tmp" rename to "stg_inventory"
+[0m05:32:46.302628 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m05:32:46.303294 [debug] [Thread-3 (]: Using postgres connection "model.dvd_kpi.stg_payment"
+[0m05:32:46.304354 [debug] [Thread-4 (]: Using postgres connection "model.dvd_kpi.stg_rental"
+[0m05:32:46.306120 [debug] [Thread-2 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m05:32:46.307860 [debug] [Thread-1 (]: On model.dvd_kpi.stg_film: COMMIT
+[0m05:32:46.309015 [debug] [Thread-3 (]: On model.dvd_kpi.stg_payment: COMMIT
+[0m05:32:46.310155 [debug] [Thread-4 (]: On model.dvd_kpi.stg_rental: COMMIT
+[0m05:32:46.312739 [debug] [Thread-2 (]: On model.dvd_kpi.stg_inventory: COMMIT
+[0m05:32:46.313975 [debug] [Thread-1 (]: Using postgres connection "model.dvd_kpi.stg_film"
+[0m05:32:46.316945 [debug] [Thread-2 (]: Using postgres connection "model.dvd_kpi.stg_inventory"
+[0m05:32:46.317485 [debug] [Thread-3 (]: SQL status: COMMIT in 0.002 seconds
+[0m05:32:46.318064 [debug] [Thread-4 (]: SQL status: COMMIT in 0.002 seconds
+[0m05:32:46.318723 [debug] [Thread-1 (]: On model.dvd_kpi.stg_film: COMMIT
+[0m05:32:46.319831 [debug] [Thread-2 (]: On model.dvd_kpi.stg_inventory: COMMIT
+[0m05:32:46.328097 [debug] [Thread-3 (]: Applying DROP to: "dvdrental"."dbt_staging"."stg_payment__dbt_backup"
+[0m05:32:46.331471 [debug] [Thread-4 (]: Applying DROP to: "dvdrental"."dbt_staging"."stg_rental__dbt_backup"
+[0m05:32:46.334775 [debug] [Thread-1 (]: SQL status: COMMIT in 0.002 seconds
+[0m05:32:46.340644 [debug] [Thread-2 (]: SQL status: COMMIT in 0.007 seconds
+[0m05:32:46.342357 [debug] [Thread-3 (]: Using postgres connection "model.dvd_kpi.stg_payment"
+[0m05:32:46.343745 [debug] [Thread-4 (]: Using postgres connection "model.dvd_kpi.stg_rental"
+[0m05:32:46.347930 [debug] [Thread-1 (]: Applying DROP to: "dvdrental"."dbt_staging"."stg_film__dbt_backup"
+[0m05:32:46.352272 [debug] [Thread-2 (]: Applying DROP to: "dvdrental"."dbt_staging"."stg_inventory__dbt_backup"
+[0m05:32:46.353854 [debug] [Thread-3 (]: On model.dvd_kpi.stg_payment: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "model.dvd_kpi.stg_payment"} */
+drop view if exists "dvdrental"."dbt_staging"."stg_payment__dbt_backup" cascade
+[0m05:32:46.355076 [debug] [Thread-4 (]: On model.dvd_kpi.stg_rental: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "model.dvd_kpi.stg_rental"} */
+drop view if exists "dvdrental"."dbt_staging"."stg_rental__dbt_backup" cascade
+[0m05:32:46.357214 [debug] [Thread-1 (]: Using postgres connection "model.dvd_kpi.stg_film"
+[0m05:32:46.358631 [debug] [Thread-2 (]: Using postgres connection "model.dvd_kpi.stg_inventory"
+[0m05:32:46.361696 [debug] [Thread-1 (]: On model.dvd_kpi.stg_film: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "model.dvd_kpi.stg_film"} */
+drop view if exists "dvdrental"."dbt_staging"."stg_film__dbt_backup" cascade
+[0m05:32:46.363094 [debug] [Thread-2 (]: On model.dvd_kpi.stg_inventory: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "model.dvd_kpi.stg_inventory"} */
+drop view if exists "dvdrental"."dbt_staging"."stg_inventory__dbt_backup" cascade
+[0m05:32:46.365023 [debug] [Thread-4 (]: SQL status: DROP VIEW in 0.004 seconds
+[0m05:32:46.366005 [debug] [Thread-3 (]: SQL status: DROP VIEW in 0.006 seconds
+[0m05:32:46.369651 [debug] [Thread-4 (]: On model.dvd_kpi.stg_rental: Close
+[0m05:32:46.370148 [debug] [Thread-1 (]: SQL status: DROP VIEW in 0.006 seconds
+[0m05:32:46.370543 [debug] [Thread-2 (]: SQL status: DROP VIEW in 0.005 seconds
+[0m05:32:46.372640 [debug] [Thread-3 (]: On model.dvd_kpi.stg_payment: Close
+[0m05:32:46.375755 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '2c4be157-9bf4-4c09-bf75-c82398d5760f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc45fa926c0>]}
+[0m05:32:46.377677 [debug] [Thread-1 (]: On model.dvd_kpi.stg_film: Close
+[0m05:32:46.380304 [debug] [Thread-2 (]: On model.dvd_kpi.stg_inventory: Close
+[0m05:32:46.382226 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '2c4be157-9bf4-4c09-bf75-c82398d5760f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc45c0f43e0>]}
+[0m05:32:46.383513 [info ] [Thread-4 (]: 4 of 30 OK created sql view model dbt_staging.stg_rental ....................... [[32mCREATE VIEW[0m in 0.38s]
+[0m05:32:46.385561 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '2c4be157-9bf4-4c09-bf75-c82398d5760f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc45e97f110>]}
+[0m05:32:46.387256 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '2c4be157-9bf4-4c09-bf75-c82398d5760f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc45a7a45f0>]}
+[0m05:32:46.388822 [info ] [Thread-3 (]: 3 of 30 OK created sql view model dbt_staging.stg_payment ...................... [[32mCREATE VIEW[0m in 0.39s]
+[0m05:32:46.390885 [debug] [Thread-4 (]: Finished running node model.dvd_kpi.stg_rental
+[0m05:32:46.392615 [info ] [Thread-1 (]: 1 of 30 OK created sql view model dbt_staging.stg_film ......................... [[32mCREATE VIEW[0m in 0.39s]
+[0m05:32:46.394894 [info ] [Thread-2 (]: 2 of 30 OK created sql view model dbt_staging.stg_inventory .................... [[32mCREATE VIEW[0m in 0.39s]
+[0m05:32:46.396809 [debug] [Thread-3 (]: Finished running node model.dvd_kpi.stg_payment
+[0m05:32:46.398476 [debug] [Thread-4 (]: Began running node seed.dvd_kpi.metric_definition
+[0m05:32:46.401003 [debug] [Thread-1 (]: Finished running node model.dvd_kpi.stg_film
+[0m05:32:46.402800 [debug] [Thread-2 (]: Finished running node model.dvd_kpi.stg_inventory
+[0m05:32:46.404815 [debug] [Thread-3 (]: Began running node model.dvd_kpi.int_payment_by_rental
+[0m05:32:46.405722 [info ] [Thread-4 (]: 5 of 30 START seed file dbt_metadata.metric_definition ......................... [RUN]
+[0m05:32:46.409955 [info ] [Thread-3 (]: 6 of 30 START sql view model dbt_intermediate.int_payment_by_rental ............ [RUN]
+[0m05:32:46.411809 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly model.dvd_kpi.stg_rental, now seed.dvd_kpi.metric_definition)
+[0m05:32:46.413204 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.dvd_kpi.stg_payment, now model.dvd_kpi.int_payment_by_rental)
+[0m05:32:46.414456 [debug] [Thread-4 (]: Began compiling node seed.dvd_kpi.metric_definition
+[0m05:32:46.415877 [debug] [Thread-3 (]: Began compiling node model.dvd_kpi.int_payment_by_rental
+[0m05:32:46.417959 [debug] [Thread-4 (]: Began executing node seed.dvd_kpi.metric_definition
+[0m05:32:46.422068 [debug] [Thread-3 (]: Writing injected SQL for node "model.dvd_kpi.int_payment_by_rental"
+[0m05:32:46.459586 [debug] [Thread-4 (]: Using postgres connection "seed.dvd_kpi.metric_definition"
+[0m05:32:46.460943 [debug] [Thread-4 (]: On seed.dvd_kpi.metric_definition: BEGIN
+[0m05:32:46.461483 [debug] [Thread-3 (]: Began executing node model.dvd_kpi.int_payment_by_rental
+[0m05:32:46.462289 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m05:32:46.466459 [debug] [Thread-3 (]: Writing runtime sql for node "model.dvd_kpi.int_payment_by_rental"
+[0m05:32:46.473285 [debug] [Thread-4 (]: SQL status: BEGIN in 0.011 seconds
+[0m05:32:46.474707 [debug] [Thread-4 (]: Using postgres connection "seed.dvd_kpi.metric_definition"
+[0m05:32:46.475811 [debug] [Thread-4 (]: On seed.dvd_kpi.metric_definition: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "seed.dvd_kpi.metric_definition"} */
+truncate table "dvdrental"."dbt_metadata"."metric_definition"
+[0m05:32:46.481124 [debug] [Thread-4 (]: SQL status: TRUNCATE TABLE in 0.004 seconds
+[0m05:32:46.488963 [debug] [Thread-3 (]: Using postgres connection "model.dvd_kpi.int_payment_by_rental"
+[0m05:32:46.505677 [debug] [Thread-4 (]: Using postgres connection "seed.dvd_kpi.metric_definition"
+[0m05:32:46.506204 [debug] [Thread-3 (]: On model.dvd_kpi.int_payment_by_rental: BEGIN
+[0m05:32:46.507654 [debug] [Thread-4 (]: On seed.dvd_kpi.metric_definition: 
+          insert into "dvdrental"."dbt_metadata"."metric_definition" ("metric_key", "metric_name", "metric_label", "description", "formula", "unit") values
+          (%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s)
+      ...
+[0m05:32:46.508958 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m05:32:46.511020 [debug] [Thread-4 (]: SQL status: INSERT 0 5 in 0.001 seconds
+[0m05:32:46.517874 [debug] [Thread-4 (]: Writing runtime SQL for node "seed.dvd_kpi.metric_definition"
+[0m05:32:46.518965 [debug] [Thread-3 (]: SQL status: BEGIN in 0.010 seconds
+[0m05:32:46.520560 [debug] [Thread-3 (]: Using postgres connection "model.dvd_kpi.int_payment_by_rental"
+[0m05:32:46.521541 [debug] [Thread-3 (]: On model.dvd_kpi.int_payment_by_rental: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "model.dvd_kpi.int_payment_by_rental"} */
+
+  create view "dvdrental"."dbt_intermediate"."int_payment_by_rental__dbt_tmp"
+    
+    
+  as (
+    select
+    rental_id,
+    sum(amount)::numeric(12, 2) as revenue_amount,
+    count(*)::integer as payment_record_count
+from "dvdrental"."dbt_staging"."stg_payment"
+where rental_id is not null
+group by rental_id
+  );
+[0m05:32:46.524272 [debug] [Thread-3 (]: SQL status: CREATE VIEW in 0.002 seconds
+[0m05:32:46.528457 [debug] [Thread-3 (]: Using postgres connection "model.dvd_kpi.int_payment_by_rental"
+[0m05:32:46.529870 [debug] [Thread-3 (]: On model.dvd_kpi.int_payment_by_rental: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "model.dvd_kpi.int_payment_by_rental"} */
+alter table "dvdrental"."dbt_intermediate"."int_payment_by_rental__dbt_tmp" rename to "int_payment_by_rental"
+[0m05:32:46.531493 [debug] [Thread-4 (]: On seed.dvd_kpi.metric_definition: COMMIT
+[0m05:32:46.533231 [debug] [Thread-3 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m05:32:46.533906 [debug] [Thread-4 (]: Using postgres connection "seed.dvd_kpi.metric_definition"
+[0m05:32:46.536249 [debug] [Thread-3 (]: On model.dvd_kpi.int_payment_by_rental: COMMIT
+[0m05:32:46.537378 [debug] [Thread-4 (]: On seed.dvd_kpi.metric_definition: COMMIT
+[0m05:32:46.538574 [debug] [Thread-3 (]: Using postgres connection "model.dvd_kpi.int_payment_by_rental"
+[0m05:32:46.540561 [debug] [Thread-3 (]: On model.dvd_kpi.int_payment_by_rental: COMMIT
+[0m05:32:46.541806 [debug] [Thread-4 (]: SQL status: COMMIT in 0.002 seconds
+[0m05:32:46.543307 [debug] [Thread-4 (]: On seed.dvd_kpi.metric_definition: Close
+[0m05:32:46.543646 [debug] [Thread-3 (]: SQL status: COMMIT in 0.002 seconds
+[0m05:32:46.544921 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '2c4be157-9bf4-4c09-bf75-c82398d5760f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc41bdb3b90>]}
+[0m05:32:46.548229 [debug] [Thread-3 (]: Applying DROP to: "dvdrental"."dbt_intermediate"."int_payment_by_rental__dbt_backup"
+[0m05:32:46.549701 [info ] [Thread-4 (]: 5 of 30 OK loaded seed file dbt_metadata.metric_definition ..................... [[32mINSERT 5[0m in 0.13s]
+[0m05:32:46.551442 [debug] [Thread-3 (]: Using postgres connection "model.dvd_kpi.int_payment_by_rental"
+[0m05:32:46.552753 [debug] [Thread-4 (]: Finished running node seed.dvd_kpi.metric_definition
+[0m05:32:46.553851 [debug] [Thread-3 (]: On model.dvd_kpi.int_payment_by_rental: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "model.dvd_kpi.int_payment_by_rental"} */
+drop view if exists "dvdrental"."dbt_intermediate"."int_payment_by_rental__dbt_backup" cascade
+[0m05:32:46.555564 [debug] [Thread-1 (]: Began running node test.dvd_kpi.not_null_metric_definition_metric_key.10ae1612fe
+[0m05:32:46.556142 [debug] [Thread-2 (]: Began running node test.dvd_kpi.not_null_metric_definition_metric_name.7d3baa6683
+[0m05:32:46.556618 [debug] [Thread-4 (]: Began running node test.dvd_kpi.unique_metric_definition_metric_key.209543ce73
+[0m05:32:46.557721 [debug] [Thread-3 (]: SQL status: DROP VIEW in 0.001 seconds
+[0m05:32:46.558557 [info ] [Thread-1 (]: 7 of 30 START test not_null_metric_definition_metric_key ....................... [RUN]
+[0m05:32:46.559707 [info ] [Thread-2 (]: 8 of 30 START test not_null_metric_definition_metric_name ...................... [RUN]
+[0m05:32:46.560987 [info ] [Thread-4 (]: 9 of 30 START test unique_metric_definition_metric_key ......................... [RUN]
+[0m05:32:46.563452 [debug] [Thread-3 (]: On model.dvd_kpi.int_payment_by_rental: Close
+[0m05:32:46.565085 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.dvd_kpi.stg_film, now test.dvd_kpi.not_null_metric_definition_metric_key.10ae1612fe)
+[0m05:32:46.566439 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.dvd_kpi.stg_inventory, now test.dvd_kpi.not_null_metric_definition_metric_name.7d3baa6683)
+[0m05:32:46.568142 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly seed.dvd_kpi.metric_definition, now test.dvd_kpi.unique_metric_definition_metric_key.209543ce73)
+[0m05:32:46.569651 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '2c4be157-9bf4-4c09-bf75-c82398d5760f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc45a1f9f40>]}
+[0m05:32:46.570556 [debug] [Thread-1 (]: Began compiling node test.dvd_kpi.not_null_metric_definition_metric_key.10ae1612fe
+[0m05:32:46.571787 [debug] [Thread-2 (]: Began compiling node test.dvd_kpi.not_null_metric_definition_metric_name.7d3baa6683
+[0m05:32:46.572915 [debug] [Thread-4 (]: Began compiling node test.dvd_kpi.unique_metric_definition_metric_key.209543ce73
+[0m05:32:46.574374 [info ] [Thread-3 (]: 6 of 30 OK created sql view model dbt_intermediate.int_payment_by_rental ....... [[32mCREATE VIEW[0m in 0.16s]
+[0m05:32:46.585118 [debug] [Thread-1 (]: Writing injected SQL for node "test.dvd_kpi.not_null_metric_definition_metric_key.10ae1612fe"
+[0m05:32:46.589905 [debug] [Thread-2 (]: Writing injected SQL for node "test.dvd_kpi.not_null_metric_definition_metric_name.7d3baa6683"
+[0m05:32:46.597298 [debug] [Thread-4 (]: Writing injected SQL for node "test.dvd_kpi.unique_metric_definition_metric_key.209543ce73"
+[0m05:32:46.598727 [debug] [Thread-3 (]: Finished running node model.dvd_kpi.int_payment_by_rental
+[0m05:32:46.603409 [debug] [Thread-3 (]: Began running node model.dvd_kpi.fct_rental_activity
+[0m05:32:46.605007 [info ] [Thread-3 (]: 10 of 30 START sql view model dbt_metrics.fct_rental_activity .................. [RUN]
+[0m05:32:46.606747 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.dvd_kpi.int_payment_by_rental, now model.dvd_kpi.fct_rental_activity)
+[0m05:32:46.607781 [debug] [Thread-3 (]: Began compiling node model.dvd_kpi.fct_rental_activity
+[0m05:32:46.612333 [debug] [Thread-3 (]: Writing injected SQL for node "model.dvd_kpi.fct_rental_activity"
+[0m05:32:46.613919 [debug] [Thread-1 (]: Began executing node test.dvd_kpi.not_null_metric_definition_metric_key.10ae1612fe
+[0m05:32:46.614322 [debug] [Thread-4 (]: Began executing node test.dvd_kpi.unique_metric_definition_metric_key.209543ce73
+[0m05:32:46.626724 [debug] [Thread-2 (]: Began executing node test.dvd_kpi.not_null_metric_definition_metric_name.7d3baa6683
+[0m05:32:46.634393 [debug] [Thread-1 (]: Writing runtime sql for node "test.dvd_kpi.not_null_metric_definition_metric_key.10ae1612fe"
+[0m05:32:46.637975 [debug] [Thread-4 (]: Writing runtime sql for node "test.dvd_kpi.unique_metric_definition_metric_key.209543ce73"
+[0m05:32:46.638531 [debug] [Thread-3 (]: Began executing node model.dvd_kpi.fct_rental_activity
+[0m05:32:46.641428 [debug] [Thread-2 (]: Writing runtime sql for node "test.dvd_kpi.not_null_metric_definition_metric_name.7d3baa6683"
+[0m05:32:46.647591 [debug] [Thread-3 (]: Writing runtime sql for node "model.dvd_kpi.fct_rental_activity"
+[0m05:32:46.657655 [debug] [Thread-4 (]: Using postgres connection "test.dvd_kpi.unique_metric_definition_metric_key.209543ce73"
+[0m05:32:46.658380 [debug] [Thread-3 (]: Using postgres connection "model.dvd_kpi.fct_rental_activity"
+[0m05:32:46.659438 [debug] [Thread-4 (]: On test.dvd_kpi.unique_metric_definition_metric_key.209543ce73: BEGIN
+[0m05:32:46.660227 [debug] [Thread-2 (]: Using postgres connection "test.dvd_kpi.not_null_metric_definition_metric_name.7d3baa6683"
+[0m05:32:46.660872 [debug] [Thread-3 (]: On model.dvd_kpi.fct_rental_activity: BEGIN
+[0m05:32:46.661820 [debug] [Thread-1 (]: Using postgres connection "test.dvd_kpi.not_null_metric_definition_metric_key.10ae1612fe"
+[0m05:32:46.662457 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m05:32:46.663606 [debug] [Thread-2 (]: On test.dvd_kpi.not_null_metric_definition_metric_name.7d3baa6683: BEGIN
+[0m05:32:46.664960 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m05:32:46.666528 [debug] [Thread-1 (]: On test.dvd_kpi.not_null_metric_definition_metric_key.10ae1612fe: BEGIN
+[0m05:32:46.669567 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m05:32:46.673591 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m05:32:46.674242 [debug] [Thread-4 (]: SQL status: BEGIN in 0.012 seconds
+[0m05:32:46.677390 [debug] [Thread-3 (]: SQL status: BEGIN in 0.012 seconds
+[0m05:32:46.678043 [debug] [Thread-4 (]: Using postgres connection "test.dvd_kpi.unique_metric_definition_metric_key.209543ce73"
+[0m05:32:46.679369 [debug] [Thread-3 (]: Using postgres connection "model.dvd_kpi.fct_rental_activity"
+[0m05:32:46.680601 [debug] [Thread-4 (]: On test.dvd_kpi.unique_metric_definition_metric_key.209543ce73: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "test.dvd_kpi.unique_metric_definition_metric_key.209543ce73"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    metric_key as unique_field,
+    count(*) as n_records
+
+from "dvdrental"."dbt_metadata"."metric_definition"
+where metric_key is not null
+group by metric_key
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+[0m05:32:46.681056 [debug] [Thread-2 (]: SQL status: BEGIN in 0.012 seconds
+[0m05:32:46.682306 [debug] [Thread-3 (]: On model.dvd_kpi.fct_rental_activity: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "model.dvd_kpi.fct_rental_activity"} */
+
+  create view "dvdrental"."dbt_metrics"."fct_rental_activity__dbt_tmp"
+    
+    
+  as (
+    with rental as (
+    select * from "dvdrental"."dbt_staging"."stg_rental"
+),
+inventory as (
+    select * from "dvdrental"."dbt_staging"."stg_inventory"
+),
+film as (
+    select * from "dvdrental"."dbt_staging"."stg_film"
+),
+payment_by_rental as (
+    select * from "dvdrental"."dbt_intermediate"."int_payment_by_rental"
+)
+select
+    r.rental_id,
+    r.rental_date,
+    date_trunc('month', r.rental_date)::date as rental_month,
+    r.return_date,
+    r.customer_id,
+    r.staff_id,
+    i.store_id,
+    i.film_id,
+    f.film_title,
+    f.rating,
+    f.rental_duration,
+    r.rental_date
+        + (f.rental_duration * interval '1 day')
+        as expected_return_datetime,
+    coalesce(p.revenue_amount, 0)::numeric(12, 2)
+        as revenue_amount,
+    coalesce(p.payment_record_count, 0)::integer
+        as payment_record_count,
+    1::integer as rental_count,
+    case
+        when r.return_date is not null then 1
+        else 0
+    end::integer as returned_rental_count,
+    case
+        when r.return_date is not null
+         and r.return_date >
+             r.rental_date
+             + (f.rental_duration * interval '1 day')
+        then 1
+        else 0
+    end::integer as late_rental_count
+from rental r
+join inventory i
+  on r.inventory_id = i.inventory_id
+join film f
+  on i.film_id = f.film_id
+left join payment_by_rental p
+  on r.rental_id = p.rental_id
+  );
+[0m05:32:46.682996 [debug] [Thread-1 (]: SQL status: BEGIN in 0.009 seconds
+[0m05:32:46.685631 [debug] [Thread-4 (]: SQL status: SELECT 1 in 0.001 seconds
+[0m05:32:46.686697 [debug] [Thread-2 (]: Using postgres connection "test.dvd_kpi.not_null_metric_definition_metric_name.7d3baa6683"
+[0m05:32:46.688875 [debug] [Thread-1 (]: Using postgres connection "test.dvd_kpi.not_null_metric_definition_metric_key.10ae1612fe"
+[0m05:32:46.695537 [debug] [Thread-3 (]: SQL status: CREATE VIEW in 0.007 seconds
+[0m05:32:46.696147 [debug] [Thread-4 (]: On test.dvd_kpi.unique_metric_definition_metric_key.209543ce73: ROLLBACK
+[0m05:32:46.697157 [debug] [Thread-2 (]: On test.dvd_kpi.not_null_metric_definition_metric_name.7d3baa6683: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "test.dvd_kpi.not_null_metric_definition_metric_name.7d3baa6683"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select metric_name
+from "dvdrental"."dbt_metadata"."metric_definition"
+where metric_name is null
+
+
+
+      
+    ) dbt_internal_test
+[0m05:32:46.698312 [debug] [Thread-1 (]: On test.dvd_kpi.not_null_metric_definition_metric_key.10ae1612fe: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "test.dvd_kpi.not_null_metric_definition_metric_key.10ae1612fe"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select metric_key
+from "dvdrental"."dbt_metadata"."metric_definition"
+where metric_key is null
+
+
+
+      
+    ) dbt_internal_test
+[0m05:32:46.702164 [debug] [Thread-3 (]: Using postgres connection "model.dvd_kpi.fct_rental_activity"
+[0m05:32:46.703560 [debug] [Thread-4 (]: On test.dvd_kpi.unique_metric_definition_metric_key.209543ce73: Close
+[0m05:32:46.705299 [debug] [Thread-2 (]: SQL status: SELECT 1 in 0.001 seconds
+[0m05:32:46.706462 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.001 seconds
+[0m05:32:46.706807 [debug] [Thread-3 (]: On model.dvd_kpi.fct_rental_activity: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "model.dvd_kpi.fct_rental_activity"} */
+alter table "dvdrental"."dbt_metrics"."fct_rental_activity__dbt_tmp" rename to "fct_rental_activity"
+[0m05:32:46.708467 [info ] [Thread-4 (]: 9 of 30 PASS unique_metric_definition_metric_key ............................... [[32mPASS[0m in 0.14s]
+[0m05:32:46.710674 [debug] [Thread-2 (]: On test.dvd_kpi.not_null_metric_definition_metric_name.7d3baa6683: ROLLBACK
+[0m05:32:46.713078 [debug] [Thread-1 (]: On test.dvd_kpi.not_null_metric_definition_metric_key.10ae1612fe: ROLLBACK
+[0m05:32:46.715176 [debug] [Thread-3 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m05:32:46.716186 [debug] [Thread-4 (]: Finished running node test.dvd_kpi.unique_metric_definition_metric_key.209543ce73
+[0m05:32:46.717748 [debug] [Thread-2 (]: On test.dvd_kpi.not_null_metric_definition_metric_name.7d3baa6683: Close
+[0m05:32:46.718899 [debug] [Thread-1 (]: On test.dvd_kpi.not_null_metric_definition_metric_key.10ae1612fe: Close
+[0m05:32:46.721151 [debug] [Thread-3 (]: On model.dvd_kpi.fct_rental_activity: COMMIT
+[0m05:32:46.723750 [info ] [Thread-2 (]: 8 of 30 PASS not_null_metric_definition_metric_name ............................ [[32mPASS[0m in 0.16s]
+[0m05:32:46.725217 [info ] [Thread-1 (]: 7 of 30 PASS not_null_metric_definition_metric_key ............................. [[32mPASS[0m in 0.16s]
+[0m05:32:46.726180 [debug] [Thread-3 (]: Using postgres connection "model.dvd_kpi.fct_rental_activity"
+[0m05:32:46.727663 [debug] [Thread-2 (]: Finished running node test.dvd_kpi.not_null_metric_definition_metric_name.7d3baa6683
+[0m05:32:46.729505 [debug] [Thread-1 (]: Finished running node test.dvd_kpi.not_null_metric_definition_metric_key.10ae1612fe
+[0m05:32:46.731713 [debug] [Thread-3 (]: On model.dvd_kpi.fct_rental_activity: COMMIT
+[0m05:32:46.737103 [debug] [Thread-3 (]: SQL status: COMMIT in 0.002 seconds
+[0m05:32:46.740535 [debug] [Thread-3 (]: Applying DROP to: "dvdrental"."dbt_metrics"."fct_rental_activity__dbt_backup"
+[0m05:32:46.742401 [debug] [Thread-3 (]: Using postgres connection "model.dvd_kpi.fct_rental_activity"
+[0m05:32:46.743463 [debug] [Thread-3 (]: On model.dvd_kpi.fct_rental_activity: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "model.dvd_kpi.fct_rental_activity"} */
+drop view if exists "dvdrental"."dbt_metrics"."fct_rental_activity__dbt_backup" cascade
+[0m05:32:46.745260 [debug] [Thread-3 (]: SQL status: DROP VIEW in 0.000 seconds
+[0m05:32:46.748299 [debug] [Thread-3 (]: On model.dvd_kpi.fct_rental_activity: Close
+[0m05:32:46.750261 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '2c4be157-9bf4-4c09-bf75-c82398d5760f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc45c278d70>]}
+[0m05:32:46.752407 [info ] [Thread-3 (]: 10 of 30 OK created sql view model dbt_metrics.fct_rental_activity ............. [[32mCREATE VIEW[0m in 0.14s]
+[0m05:32:46.754362 [debug] [Thread-3 (]: Finished running node model.dvd_kpi.fct_rental_activity
+[0m05:32:46.757252 [debug] [Thread-4 (]: Began running node test.dvd_kpi.not_null_fct_rental_activity_rental_count.d67dc9cf0e
+[0m05:32:46.757989 [debug] [Thread-2 (]: Began running node test.dvd_kpi.not_null_fct_rental_activity_rental_id.53ab9a2638
+[0m05:32:46.758529 [debug] [Thread-1 (]: Began running node test.dvd_kpi.not_null_fct_rental_activity_rental_month.74aa2b9a1f
+[0m05:32:46.759026 [debug] [Thread-3 (]: Began running node test.dvd_kpi.not_null_fct_rental_activity_revenue_amount.62444cdc59
+[0m05:32:46.760237 [info ] [Thread-4 (]: 11 of 30 START test not_null_fct_rental_activity_rental_count .................. [RUN]
+[0m05:32:46.761665 [info ] [Thread-2 (]: 12 of 30 START test not_null_fct_rental_activity_rental_id ..................... [RUN]
+[0m05:32:46.763070 [info ] [Thread-1 (]: 13 of 30 START test not_null_fct_rental_activity_rental_month .................. [RUN]
+[0m05:32:46.764809 [info ] [Thread-3 (]: 14 of 30 START test not_null_fct_rental_activity_revenue_amount ................ [RUN]
+[0m05:32:46.766409 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.dvd_kpi.unique_metric_definition_metric_key.209543ce73, now test.dvd_kpi.not_null_fct_rental_activity_rental_count.d67dc9cf0e)
+[0m05:32:46.767774 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.dvd_kpi.not_null_metric_definition_metric_name.7d3baa6683, now test.dvd_kpi.not_null_fct_rental_activity_rental_id.53ab9a2638)
+[0m05:32:46.769346 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.dvd_kpi.not_null_metric_definition_metric_key.10ae1612fe, now test.dvd_kpi.not_null_fct_rental_activity_rental_month.74aa2b9a1f)
+[0m05:32:46.770615 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.dvd_kpi.fct_rental_activity, now test.dvd_kpi.not_null_fct_rental_activity_revenue_amount.62444cdc59)
+[0m05:32:46.771947 [debug] [Thread-4 (]: Began compiling node test.dvd_kpi.not_null_fct_rental_activity_rental_count.d67dc9cf0e
+[0m05:32:46.773316 [debug] [Thread-2 (]: Began compiling node test.dvd_kpi.not_null_fct_rental_activity_rental_id.53ab9a2638
+[0m05:32:46.774680 [debug] [Thread-1 (]: Began compiling node test.dvd_kpi.not_null_fct_rental_activity_rental_month.74aa2b9a1f
+[0m05:32:46.776072 [debug] [Thread-3 (]: Began compiling node test.dvd_kpi.not_null_fct_rental_activity_revenue_amount.62444cdc59
+[0m05:32:46.781799 [debug] [Thread-4 (]: Writing injected SQL for node "test.dvd_kpi.not_null_fct_rental_activity_rental_count.d67dc9cf0e"
+[0m05:32:46.787391 [debug] [Thread-2 (]: Writing injected SQL for node "test.dvd_kpi.not_null_fct_rental_activity_rental_id.53ab9a2638"
+[0m05:32:46.792530 [debug] [Thread-1 (]: Writing injected SQL for node "test.dvd_kpi.not_null_fct_rental_activity_rental_month.74aa2b9a1f"
+[0m05:32:46.799377 [debug] [Thread-3 (]: Writing injected SQL for node "test.dvd_kpi.not_null_fct_rental_activity_revenue_amount.62444cdc59"
+[0m05:32:46.806408 [debug] [Thread-4 (]: Began executing node test.dvd_kpi.not_null_fct_rental_activity_rental_count.d67dc9cf0e
+[0m05:32:46.810962 [debug] [Thread-4 (]: Writing runtime sql for node "test.dvd_kpi.not_null_fct_rental_activity_rental_count.d67dc9cf0e"
+[0m05:32:46.811628 [debug] [Thread-3 (]: Began executing node test.dvd_kpi.not_null_fct_rental_activity_revenue_amount.62444cdc59
+[0m05:32:46.813662 [debug] [Thread-2 (]: Began executing node test.dvd_kpi.not_null_fct_rental_activity_rental_id.53ab9a2638
+[0m05:32:46.814297 [debug] [Thread-1 (]: Began executing node test.dvd_kpi.not_null_fct_rental_activity_rental_month.74aa2b9a1f
+[0m05:32:46.817300 [debug] [Thread-3 (]: Writing runtime sql for node "test.dvd_kpi.not_null_fct_rental_activity_revenue_amount.62444cdc59"
+[0m05:32:46.821077 [debug] [Thread-2 (]: Writing runtime sql for node "test.dvd_kpi.not_null_fct_rental_activity_rental_id.53ab9a2638"
+[0m05:32:46.824635 [debug] [Thread-1 (]: Writing runtime sql for node "test.dvd_kpi.not_null_fct_rental_activity_rental_month.74aa2b9a1f"
+[0m05:32:46.826323 [debug] [Thread-4 (]: Using postgres connection "test.dvd_kpi.not_null_fct_rental_activity_rental_count.d67dc9cf0e"
+[0m05:32:46.829115 [debug] [Thread-4 (]: On test.dvd_kpi.not_null_fct_rental_activity_rental_count.d67dc9cf0e: BEGIN
+[0m05:32:46.830191 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m05:32:46.832404 [debug] [Thread-3 (]: Using postgres connection "test.dvd_kpi.not_null_fct_rental_activity_revenue_amount.62444cdc59"
+[0m05:32:46.834017 [debug] [Thread-3 (]: On test.dvd_kpi.not_null_fct_rental_activity_revenue_amount.62444cdc59: BEGIN
+[0m05:32:46.834822 [debug] [Thread-2 (]: Using postgres connection "test.dvd_kpi.not_null_fct_rental_activity_rental_id.53ab9a2638"
+[0m05:32:46.836304 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m05:32:46.838421 [debug] [Thread-1 (]: Using postgres connection "test.dvd_kpi.not_null_fct_rental_activity_rental_month.74aa2b9a1f"
+[0m05:32:46.839268 [debug] [Thread-2 (]: On test.dvd_kpi.not_null_fct_rental_activity_rental_id.53ab9a2638: BEGIN
+[0m05:32:46.840572 [debug] [Thread-4 (]: SQL status: BEGIN in 0.010 seconds
+[0m05:32:46.843102 [debug] [Thread-1 (]: On test.dvd_kpi.not_null_fct_rental_activity_rental_month.74aa2b9a1f: BEGIN
+[0m05:32:46.844552 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m05:32:46.845935 [debug] [Thread-4 (]: Using postgres connection "test.dvd_kpi.not_null_fct_rental_activity_rental_count.d67dc9cf0e"
+[0m05:32:46.847269 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m05:32:46.848346 [debug] [Thread-3 (]: SQL status: BEGIN in 0.012 seconds
+[0m05:32:46.850673 [debug] [Thread-4 (]: On test.dvd_kpi.not_null_fct_rental_activity_rental_count.d67dc9cf0e: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "test.dvd_kpi.not_null_fct_rental_activity_rental_count.d67dc9cf0e"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select rental_count
+from "dvdrental"."dbt_metrics"."fct_rental_activity"
+where rental_count is null
+
+
+
+      
+    ) dbt_internal_test
+[0m05:32:46.853189 [debug] [Thread-3 (]: Using postgres connection "test.dvd_kpi.not_null_fct_rental_activity_revenue_amount.62444cdc59"
+[0m05:32:46.855260 [debug] [Thread-2 (]: SQL status: BEGIN in 0.011 seconds
+[0m05:32:46.856446 [debug] [Thread-3 (]: On test.dvd_kpi.not_null_fct_rental_activity_revenue_amount.62444cdc59: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "test.dvd_kpi.not_null_fct_rental_activity_revenue_amount.62444cdc59"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select revenue_amount
+from "dvdrental"."dbt_metrics"."fct_rental_activity"
+where revenue_amount is null
+
+
+
+      
+    ) dbt_internal_test
+[0m05:32:46.857694 [debug] [Thread-1 (]: SQL status: BEGIN in 0.010 seconds
+[0m05:32:46.858683 [debug] [Thread-2 (]: Using postgres connection "test.dvd_kpi.not_null_fct_rental_activity_rental_id.53ab9a2638"
+[0m05:32:46.859168 [debug] [Thread-4 (]: SQL status: SELECT 1 in 0.005 seconds
+[0m05:32:46.861099 [debug] [Thread-1 (]: Using postgres connection "test.dvd_kpi.not_null_fct_rental_activity_rental_month.74aa2b9a1f"
+[0m05:32:46.862249 [debug] [Thread-2 (]: On test.dvd_kpi.not_null_fct_rental_activity_rental_id.53ab9a2638: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "test.dvd_kpi.not_null_fct_rental_activity_rental_id.53ab9a2638"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select rental_id
+from "dvdrental"."dbt_metrics"."fct_rental_activity"
+where rental_id is null
+
+
+
+      
+    ) dbt_internal_test
+[0m05:32:46.864934 [debug] [Thread-4 (]: On test.dvd_kpi.not_null_fct_rental_activity_rental_count.d67dc9cf0e: ROLLBACK
+[0m05:32:46.866480 [debug] [Thread-1 (]: On test.dvd_kpi.not_null_fct_rental_activity_rental_month.74aa2b9a1f: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "test.dvd_kpi.not_null_fct_rental_activity_rental_month.74aa2b9a1f"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select rental_month
+from "dvdrental"."dbt_metrics"."fct_rental_activity"
+where rental_month is null
+
+
+
+      
+    ) dbt_internal_test
+[0m05:32:46.869409 [debug] [Thread-4 (]: On test.dvd_kpi.not_null_fct_rental_activity_rental_count.d67dc9cf0e: Close
+[0m05:32:46.872853 [debug] [Thread-2 (]: SQL status: SELECT 1 in 0.005 seconds
+[0m05:32:46.872224 [info ] [Thread-4 (]: 11 of 30 PASS not_null_fct_rental_activity_rental_count ........................ [[32mPASS[0m in 0.11s]
+[0m05:32:46.876358 [debug] [Thread-2 (]: On test.dvd_kpi.not_null_fct_rental_activity_rental_id.53ab9a2638: ROLLBACK
+[0m05:32:46.877975 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.007 seconds
+[0m05:32:46.878909 [debug] [Thread-4 (]: Finished running node test.dvd_kpi.not_null_fct_rental_activity_rental_count.d67dc9cf0e
+[0m05:32:46.880489 [debug] [Thread-2 (]: On test.dvd_kpi.not_null_fct_rental_activity_rental_id.53ab9a2638: Close
+[0m05:32:46.882870 [debug] [Thread-1 (]: On test.dvd_kpi.not_null_fct_rental_activity_rental_month.74aa2b9a1f: ROLLBACK
+[0m05:32:46.884587 [debug] [Thread-4 (]: Began running node test.dvd_kpi.not_null_fct_rental_activity_store_id.6aaaaa7aef
+[0m05:32:46.886788 [info ] [Thread-2 (]: 12 of 30 PASS not_null_fct_rental_activity_rental_id ........................... [[32mPASS[0m in 0.12s]
+[0m05:32:46.888304 [debug] [Thread-1 (]: On test.dvd_kpi.not_null_fct_rental_activity_rental_month.74aa2b9a1f: Close
+[0m05:32:46.889867 [info ] [Thread-4 (]: 15 of 30 START test not_null_fct_rental_activity_store_id ...................... [RUN]
+[0m05:32:46.891895 [debug] [Thread-2 (]: Finished running node test.dvd_kpi.not_null_fct_rental_activity_rental_id.53ab9a2638
+[0m05:32:46.894515 [debug] [Thread-3 (]: SQL status: SELECT 1 in 0.034 seconds
+[0m05:32:46.893758 [info ] [Thread-1 (]: 13 of 30 PASS not_null_fct_rental_activity_rental_month ........................ [[32mPASS[0m in 0.12s]
+[0m05:32:46.895747 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.dvd_kpi.not_null_fct_rental_activity_rental_count.d67dc9cf0e, now test.dvd_kpi.not_null_fct_rental_activity_store_id.6aaaaa7aef)
+[0m05:32:46.897392 [debug] [Thread-2 (]: Began running node test.dvd_kpi.unique_fct_rental_activity_rental_id.95e03ebbdd
+[0m05:32:46.901183 [debug] [Thread-3 (]: On test.dvd_kpi.not_null_fct_rental_activity_revenue_amount.62444cdc59: ROLLBACK
+[0m05:32:46.903586 [debug] [Thread-1 (]: Finished running node test.dvd_kpi.not_null_fct_rental_activity_rental_month.74aa2b9a1f
+[0m05:32:46.905038 [debug] [Thread-4 (]: Began compiling node test.dvd_kpi.not_null_fct_rental_activity_store_id.6aaaaa7aef
+[0m05:32:46.906534 [info ] [Thread-2 (]: 16 of 30 START test unique_fct_rental_activity_rental_id ....................... [RUN]
+[0m05:32:46.908368 [debug] [Thread-3 (]: On test.dvd_kpi.not_null_fct_rental_activity_revenue_amount.62444cdc59: Close
+[0m05:32:46.915099 [debug] [Thread-4 (]: Writing injected SQL for node "test.dvd_kpi.not_null_fct_rental_activity_store_id.6aaaaa7aef"
+[0m05:32:46.916760 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.dvd_kpi.not_null_fct_rental_activity_rental_id.53ab9a2638, now test.dvd_kpi.unique_fct_rental_activity_rental_id.95e03ebbdd)
+[0m05:32:46.918742 [info ] [Thread-3 (]: 14 of 30 PASS not_null_fct_rental_activity_revenue_amount ...................... [[32mPASS[0m in 0.15s]
+[0m05:32:46.920701 [debug] [Thread-2 (]: Began compiling node test.dvd_kpi.unique_fct_rental_activity_rental_id.95e03ebbdd
+[0m05:32:46.922427 [debug] [Thread-3 (]: Finished running node test.dvd_kpi.not_null_fct_rental_activity_revenue_amount.62444cdc59
+[0m05:32:46.933318 [debug] [Thread-2 (]: Writing injected SQL for node "test.dvd_kpi.unique_fct_rental_activity_rental_id.95e03ebbdd"
+[0m05:32:46.935711 [debug] [Thread-4 (]: Began executing node test.dvd_kpi.not_null_fct_rental_activity_store_id.6aaaaa7aef
+[0m05:32:46.940740 [debug] [Thread-4 (]: Writing runtime sql for node "test.dvd_kpi.not_null_fct_rental_activity_store_id.6aaaaa7aef"
+[0m05:32:46.947400 [debug] [Thread-2 (]: Began executing node test.dvd_kpi.unique_fct_rental_activity_rental_id.95e03ebbdd
+[0m05:32:46.951351 [debug] [Thread-2 (]: Writing runtime sql for node "test.dvd_kpi.unique_fct_rental_activity_rental_id.95e03ebbdd"
+[0m05:32:46.953292 [debug] [Thread-4 (]: Using postgres connection "test.dvd_kpi.not_null_fct_rental_activity_store_id.6aaaaa7aef"
+[0m05:32:46.954654 [debug] [Thread-4 (]: On test.dvd_kpi.not_null_fct_rental_activity_store_id.6aaaaa7aef: BEGIN
+[0m05:32:46.956022 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m05:32:46.960581 [debug] [Thread-2 (]: Using postgres connection "test.dvd_kpi.unique_fct_rental_activity_rental_id.95e03ebbdd"
+[0m05:32:46.962094 [debug] [Thread-2 (]: On test.dvd_kpi.unique_fct_rental_activity_rental_id.95e03ebbdd: BEGIN
+[0m05:32:46.963290 [debug] [Thread-4 (]: SQL status: BEGIN in 0.007 seconds
+[0m05:32:46.963995 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m05:32:46.965359 [debug] [Thread-4 (]: Using postgres connection "test.dvd_kpi.not_null_fct_rental_activity_store_id.6aaaaa7aef"
+[0m05:32:46.968116 [debug] [Thread-4 (]: On test.dvd_kpi.not_null_fct_rental_activity_store_id.6aaaaa7aef: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "test.dvd_kpi.not_null_fct_rental_activity_store_id.6aaaaa7aef"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select store_id
+from "dvdrental"."dbt_metrics"."fct_rental_activity"
+where store_id is null
+
+
+
+      
+    ) dbt_internal_test
+[0m05:32:46.972470 [debug] [Thread-4 (]: SQL status: SELECT 1 in 0.003 seconds
+[0m05:32:46.973115 [debug] [Thread-2 (]: SQL status: BEGIN in 0.009 seconds
+[0m05:32:46.975755 [debug] [Thread-4 (]: On test.dvd_kpi.not_null_fct_rental_activity_store_id.6aaaaa7aef: ROLLBACK
+[0m05:32:46.977196 [debug] [Thread-2 (]: Using postgres connection "test.dvd_kpi.unique_fct_rental_activity_rental_id.95e03ebbdd"
+[0m05:32:46.978633 [debug] [Thread-4 (]: On test.dvd_kpi.not_null_fct_rental_activity_store_id.6aaaaa7aef: Close
+[0m05:32:46.979516 [debug] [Thread-2 (]: On test.dvd_kpi.unique_fct_rental_activity_rental_id.95e03ebbdd: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "test.dvd_kpi.unique_fct_rental_activity_rental_id.95e03ebbdd"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    rental_id as unique_field,
+    count(*) as n_records
+
+from "dvdrental"."dbt_metrics"."fct_rental_activity"
+where rental_id is not null
+group by rental_id
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+[0m05:32:46.981114 [info ] [Thread-4 (]: 15 of 30 PASS not_null_fct_rental_activity_store_id ............................ [[32mPASS[0m in 0.09s]
+[0m05:32:46.983355 [debug] [Thread-4 (]: Finished running node test.dvd_kpi.not_null_fct_rental_activity_store_id.6aaaaa7aef
+[0m05:32:47.005476 [debug] [Thread-2 (]: SQL status: SELECT 1 in 0.023 seconds
+[0m05:32:47.008861 [debug] [Thread-2 (]: On test.dvd_kpi.unique_fct_rental_activity_rental_id.95e03ebbdd: ROLLBACK
+[0m05:32:47.010981 [debug] [Thread-2 (]: On test.dvd_kpi.unique_fct_rental_activity_rental_id.95e03ebbdd: Close
+[0m05:32:47.012593 [info ] [Thread-2 (]: 16 of 30 PASS unique_fct_rental_activity_rental_id ............................. [[32mPASS[0m in 0.10s]
+[0m05:32:47.014378 [debug] [Thread-2 (]: Finished running node test.dvd_kpi.unique_fct_rental_activity_rental_id.95e03ebbdd
+[0m05:32:47.016911 [debug] [Thread-1 (]: Began running node model.dvd_kpi.metric_company_monthly
+[0m05:32:47.017460 [debug] [Thread-3 (]: Began running node model.dvd_kpi.metric_store_monthly
+[0m05:32:47.018720 [info ] [Thread-1 (]: 17 of 30 START sql view model dbt_metrics.metric_company_monthly ............... [RUN]
+[0m05:32:47.020171 [info ] [Thread-3 (]: 18 of 30 START sql view model dbt_metrics.metric_store_monthly ................. [RUN]
+[0m05:32:47.021699 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.dvd_kpi.not_null_fct_rental_activity_rental_month.74aa2b9a1f, now model.dvd_kpi.metric_company_monthly)
+[0m05:32:47.023291 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.dvd_kpi.not_null_fct_rental_activity_revenue_amount.62444cdc59, now model.dvd_kpi.metric_store_monthly)
+[0m05:32:47.024619 [debug] [Thread-1 (]: Began compiling node model.dvd_kpi.metric_company_monthly
+[0m05:32:47.025905 [debug] [Thread-3 (]: Began compiling node model.dvd_kpi.metric_store_monthly
+[0m05:32:47.030971 [debug] [Thread-1 (]: Writing injected SQL for node "model.dvd_kpi.metric_company_monthly"
+[0m05:32:47.035645 [debug] [Thread-3 (]: Writing injected SQL for node "model.dvd_kpi.metric_store_monthly"
+[0m05:32:47.044492 [debug] [Thread-3 (]: Began executing node model.dvd_kpi.metric_store_monthly
+[0m05:32:47.051412 [debug] [Thread-3 (]: Writing runtime sql for node "model.dvd_kpi.metric_store_monthly"
+[0m05:32:47.052038 [debug] [Thread-1 (]: Began executing node model.dvd_kpi.metric_company_monthly
+[0m05:32:47.057269 [debug] [Thread-1 (]: Writing runtime sql for node "model.dvd_kpi.metric_company_monthly"
+[0m05:32:47.063371 [debug] [Thread-3 (]: Using postgres connection "model.dvd_kpi.metric_store_monthly"
+[0m05:32:47.064567 [debug] [Thread-3 (]: On model.dvd_kpi.metric_store_monthly: BEGIN
+[0m05:32:47.065832 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m05:32:47.066546 [debug] [Thread-1 (]: Using postgres connection "model.dvd_kpi.metric_company_monthly"
+[0m05:32:47.068857 [debug] [Thread-1 (]: On model.dvd_kpi.metric_company_monthly: BEGIN
+[0m05:32:47.070387 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m05:32:47.074067 [debug] [Thread-3 (]: SQL status: BEGIN in 0.008 seconds
+[0m05:32:47.075799 [debug] [Thread-3 (]: Using postgres connection "model.dvd_kpi.metric_store_monthly"
+[0m05:32:47.077257 [debug] [Thread-3 (]: On model.dvd_kpi.metric_store_monthly: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "model.dvd_kpi.metric_store_monthly"} */
+
+  create view "dvdrental"."dbt_metrics"."metric_store_monthly__dbt_tmp"
+    
+    
+  as (
+    with monthly_base as (
+    select
+        rental_month as metric_month,
+        store_id,
+        sum(revenue_amount) as total_revenue,
+        sum(rental_count) as rental_count,
+        count(distinct customer_id) as active_customer_count,
+        sum(late_rental_count) as late_rental_count,
+        sum(returned_rental_count) as returned_rental_count
+    from "dvdrental"."dbt_metrics"."fct_rental_activity"
+    group by rental_month, store_id
+),
+metric_values as (
+    select
+        metric_month,
+        store_id,
+        'M001'::varchar as metric_key,
+        total_revenue::numeric(18, 4) as metric_value
+    from monthly_base
+    union all
+    select
+        metric_month,
+        store_id,
+        'M002',
+        rental_count::numeric(18, 4)
+    from monthly_base
+    union all
+    select
+        metric_month,
+        store_id,
+        'M003',
+        active_customer_count::numeric(18, 4)
+    from monthly_base
+    union all
+    select
+        metric_month,
+        store_id,
+        'M004',
+        (
+            total_revenue
+            / nullif(rental_count, 0)
+        )::numeric(18, 4)
+    from monthly_base
+    union all
+    select
+        metric_month,
+        store_id,
+        'M005',
+        (
+            late_rental_count::numeric
+            / nullif(returned_rental_count, 0)
+        )::numeric(18, 4)
+    from monthly_base
+)
+select
+    v.metric_month,
+    v.store_id,
+    v.metric_key,
+    d.metric_name,
+    d.metric_label,
+    d.description,
+    d.formula,
+    d.unit,
+    v.metric_value
+from metric_values v
+join "dvdrental"."dbt_metadata"."metric_definition" d
+  on v.metric_key = d.metric_key
+  );
+[0m05:32:47.078613 [debug] [Thread-1 (]: SQL status: BEGIN in 0.008 seconds
+[0m05:32:47.080266 [debug] [Thread-1 (]: Using postgres connection "model.dvd_kpi.metric_company_monthly"
+[0m05:32:47.081838 [debug] [Thread-1 (]: On model.dvd_kpi.metric_company_monthly: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "model.dvd_kpi.metric_company_monthly"} */
+
+  create view "dvdrental"."dbt_metrics"."metric_company_monthly__dbt_tmp"
+    
+    
+  as (
+    with monthly_base as (
+    select
+        rental_month as metric_month,
+        sum(revenue_amount) as total_revenue,
+        sum(rental_count) as rental_count,
+        count(distinct customer_id) as active_customer_count,
+        sum(late_rental_count) as late_rental_count,
+        sum(returned_rental_count) as returned_rental_count
+    from "dvdrental"."dbt_metrics"."fct_rental_activity"
+    group by rental_month
+),
+metric_values as (
+    select
+        metric_month,
+        'M001'::varchar as metric_key,
+        total_revenue::numeric(18, 4) as metric_value
+    from monthly_base
+    union all
+    select
+        metric_month,
+        'M002',
+        rental_count::numeric(18, 4)
+    from monthly_base
+    union all
+    select
+        metric_month,
+        'M003',
+        active_customer_count::numeric(18, 4)
+    from monthly_base
+    union all
+    select
+        metric_month,
+        'M004',
+        (
+            total_revenue
+            / nullif(rental_count, 0)
+        )::numeric(18, 4)
+    from monthly_base
+    union all
+    select
+        metric_month,
+        'M005',
+        (
+            late_rental_count::numeric
+            / nullif(returned_rental_count, 0)
+        )::numeric(18, 4)
+    from monthly_base
+)
+select
+    v.metric_month,
+    v.metric_key,
+    d.metric_name,
+    d.metric_label,
+    d.description,
+    d.formula,
+    d.unit,
+    v.metric_value
+from metric_values v
+join "dvdrental"."dbt_metadata"."metric_definition" d
+  on v.metric_key = d.metric_key
+  );
+[0m05:32:47.083659 [debug] [Thread-3 (]: SQL status: CREATE VIEW in 0.004 seconds
+[0m05:32:47.088112 [debug] [Thread-3 (]: Using postgres connection "model.dvd_kpi.metric_store_monthly"
+[0m05:32:47.088556 [debug] [Thread-1 (]: SQL status: CREATE VIEW in 0.005 seconds
+[0m05:32:47.089530 [debug] [Thread-3 (]: On model.dvd_kpi.metric_store_monthly: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "model.dvd_kpi.metric_store_monthly"} */
+alter table "dvdrental"."dbt_metrics"."metric_store_monthly__dbt_tmp" rename to "metric_store_monthly"
+[0m05:32:47.093045 [debug] [Thread-1 (]: Using postgres connection "model.dvd_kpi.metric_company_monthly"
+[0m05:32:47.095048 [debug] [Thread-3 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m05:32:47.095480 [debug] [Thread-1 (]: On model.dvd_kpi.metric_company_monthly: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "model.dvd_kpi.metric_company_monthly"} */
+alter table "dvdrental"."dbt_metrics"."metric_company_monthly__dbt_tmp" rename to "metric_company_monthly"
+[0m05:32:47.097928 [debug] [Thread-3 (]: On model.dvd_kpi.metric_store_monthly: COMMIT
+[0m05:32:47.099898 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m05:32:47.100517 [debug] [Thread-3 (]: Using postgres connection "model.dvd_kpi.metric_store_monthly"
+[0m05:32:47.102894 [debug] [Thread-1 (]: On model.dvd_kpi.metric_company_monthly: COMMIT
+[0m05:32:47.104149 [debug] [Thread-3 (]: On model.dvd_kpi.metric_store_monthly: COMMIT
+[0m05:32:47.105392 [debug] [Thread-1 (]: Using postgres connection "model.dvd_kpi.metric_company_monthly"
+[0m05:32:47.107213 [debug] [Thread-1 (]: On model.dvd_kpi.metric_company_monthly: COMMIT
+[0m05:32:47.108235 [debug] [Thread-3 (]: SQL status: COMMIT in 0.002 seconds
+[0m05:32:47.111633 [debug] [Thread-3 (]: Applying DROP to: "dvdrental"."dbt_metrics"."metric_store_monthly__dbt_backup"
+[0m05:32:47.112240 [debug] [Thread-1 (]: SQL status: COMMIT in 0.003 seconds
+[0m05:32:47.113506 [debug] [Thread-3 (]: Using postgres connection "model.dvd_kpi.metric_store_monthly"
+[0m05:32:47.117414 [debug] [Thread-1 (]: Applying DROP to: "dvdrental"."dbt_metrics"."metric_company_monthly__dbt_backup"
+[0m05:32:47.118977 [debug] [Thread-3 (]: On model.dvd_kpi.metric_store_monthly: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "model.dvd_kpi.metric_store_monthly"} */
+drop view if exists "dvdrental"."dbt_metrics"."metric_store_monthly__dbt_backup" cascade
+[0m05:32:47.121188 [debug] [Thread-1 (]: Using postgres connection "model.dvd_kpi.metric_company_monthly"
+[0m05:32:47.123490 [debug] [Thread-3 (]: SQL status: DROP VIEW in 0.001 seconds
+[0m05:32:47.124671 [debug] [Thread-1 (]: On model.dvd_kpi.metric_company_monthly: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "model.dvd_kpi.metric_company_monthly"} */
+drop view if exists "dvdrental"."dbt_metrics"."metric_company_monthly__dbt_backup" cascade
+[0m05:32:47.128491 [debug] [Thread-3 (]: On model.dvd_kpi.metric_store_monthly: Close
+[0m05:32:47.131035 [debug] [Thread-1 (]: SQL status: DROP VIEW in 0.001 seconds
+[0m05:32:47.132876 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '2c4be157-9bf4-4c09-bf75-c82398d5760f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc45a75f4a0>]}
+[0m05:32:47.136431 [debug] [Thread-1 (]: On model.dvd_kpi.metric_company_monthly: Close
+[0m05:32:47.139216 [info ] [Thread-3 (]: 18 of 30 OK created sql view model dbt_metrics.metric_store_monthly ............ [[32mCREATE VIEW[0m in 0.11s]
+[0m05:32:47.141484 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '2c4be157-9bf4-4c09-bf75-c82398d5760f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc45a7b02c0>]}
+[0m05:32:47.143234 [debug] [Thread-3 (]: Finished running node model.dvd_kpi.metric_store_monthly
+[0m05:32:47.145523 [info ] [Thread-1 (]: 17 of 30 OK created sql view model dbt_metrics.metric_company_monthly .......... [[32mCREATE VIEW[0m in 0.12s]
+[0m05:32:47.148213 [debug] [Thread-2 (]: Began running node test.dvd_kpi.assert_metric_store_grain
+[0m05:32:47.148935 [debug] [Thread-4 (]: Began running node test.dvd_kpi.not_null_metric_store_monthly_metric_key.530b6773fb
+[0m05:32:47.149493 [debug] [Thread-3 (]: Began running node test.dvd_kpi.not_null_metric_store_monthly_metric_month.2368ed7b02
+[0m05:32:47.150721 [debug] [Thread-1 (]: Finished running node model.dvd_kpi.metric_company_monthly
+[0m05:32:47.152429 [info ] [Thread-2 (]: 19 of 30 START test assert_metric_store_grain .................................. [RUN]
+[0m05:32:47.153903 [info ] [Thread-4 (]: 20 of 30 START test not_null_metric_store_monthly_metric_key ................... [RUN]
+[0m05:32:47.155450 [info ] [Thread-3 (]: 21 of 30 START test not_null_metric_store_monthly_metric_month ................. [RUN]
+[0m05:32:47.157895 [debug] [Thread-1 (]: Began running node test.dvd_kpi.not_null_metric_store_monthly_metric_value.b59e8aba5c
+[0m05:32:47.159583 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.dvd_kpi.unique_fct_rental_activity_rental_id.95e03ebbdd, now test.dvd_kpi.assert_metric_store_grain)
+[0m05:32:47.161360 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.dvd_kpi.not_null_fct_rental_activity_store_id.6aaaaa7aef, now test.dvd_kpi.not_null_metric_store_monthly_metric_key.530b6773fb)
+[0m05:32:47.163155 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.dvd_kpi.metric_store_monthly, now test.dvd_kpi.not_null_metric_store_monthly_metric_month.2368ed7b02)
+[0m05:32:47.164999 [info ] [Thread-1 (]: 22 of 30 START test not_null_metric_store_monthly_metric_value ................. [RUN]
+[0m05:32:47.166303 [debug] [Thread-2 (]: Began compiling node test.dvd_kpi.assert_metric_store_grain
+[0m05:32:47.167971 [debug] [Thread-4 (]: Began compiling node test.dvd_kpi.not_null_metric_store_monthly_metric_key.530b6773fb
+[0m05:32:47.169387 [debug] [Thread-3 (]: Began compiling node test.dvd_kpi.not_null_metric_store_monthly_metric_month.2368ed7b02
+[0m05:32:47.171052 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.dvd_kpi.metric_company_monthly, now test.dvd_kpi.not_null_metric_store_monthly_metric_value.b59e8aba5c)
+[0m05:32:47.175402 [debug] [Thread-2 (]: Writing injected SQL for node "test.dvd_kpi.assert_metric_store_grain"
+[0m05:32:47.186672 [debug] [Thread-4 (]: Writing injected SQL for node "test.dvd_kpi.not_null_metric_store_monthly_metric_key.530b6773fb"
+[0m05:32:47.193535 [debug] [Thread-3 (]: Writing injected SQL for node "test.dvd_kpi.not_null_metric_store_monthly_metric_month.2368ed7b02"
+[0m05:32:47.194663 [debug] [Thread-1 (]: Began compiling node test.dvd_kpi.not_null_metric_store_monthly_metric_value.b59e8aba5c
+[0m05:32:47.205497 [debug] [Thread-1 (]: Writing injected SQL for node "test.dvd_kpi.not_null_metric_store_monthly_metric_value.b59e8aba5c"
+[0m05:32:47.210934 [debug] [Thread-2 (]: Began executing node test.dvd_kpi.assert_metric_store_grain
+[0m05:32:47.212803 [debug] [Thread-3 (]: Began executing node test.dvd_kpi.not_null_metric_store_monthly_metric_month.2368ed7b02
+[0m05:32:47.217403 [debug] [Thread-2 (]: Writing runtime sql for node "test.dvd_kpi.assert_metric_store_grain"
+[0m05:32:47.219772 [debug] [Thread-4 (]: Began executing node test.dvd_kpi.not_null_metric_store_monthly_metric_key.530b6773fb
+[0m05:32:47.224466 [debug] [Thread-3 (]: Writing runtime sql for node "test.dvd_kpi.not_null_metric_store_monthly_metric_month.2368ed7b02"
+[0m05:32:47.225423 [debug] [Thread-1 (]: Began executing node test.dvd_kpi.not_null_metric_store_monthly_metric_value.b59e8aba5c
+[0m05:32:47.232995 [debug] [Thread-4 (]: Writing runtime sql for node "test.dvd_kpi.not_null_metric_store_monthly_metric_key.530b6773fb"
+[0m05:32:47.241001 [debug] [Thread-1 (]: Writing runtime sql for node "test.dvd_kpi.not_null_metric_store_monthly_metric_value.b59e8aba5c"
+[0m05:32:47.248267 [debug] [Thread-2 (]: Using postgres connection "test.dvd_kpi.assert_metric_store_grain"
+[0m05:32:47.249798 [debug] [Thread-3 (]: Using postgres connection "test.dvd_kpi.not_null_metric_store_monthly_metric_month.2368ed7b02"
+[0m05:32:47.250872 [debug] [Thread-2 (]: On test.dvd_kpi.assert_metric_store_grain: BEGIN
+[0m05:32:47.253613 [debug] [Thread-1 (]: Using postgres connection "test.dvd_kpi.not_null_metric_store_monthly_metric_value.b59e8aba5c"
+[0m05:32:47.254486 [debug] [Thread-3 (]: On test.dvd_kpi.not_null_metric_store_monthly_metric_month.2368ed7b02: BEGIN
+[0m05:32:47.262249 [debug] [Thread-4 (]: Using postgres connection "test.dvd_kpi.not_null_metric_store_monthly_metric_key.530b6773fb"
+[0m05:32:47.263176 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m05:32:47.265676 [debug] [Thread-1 (]: On test.dvd_kpi.not_null_metric_store_monthly_metric_value.b59e8aba5c: BEGIN
+[0m05:32:47.268140 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m05:32:47.270456 [debug] [Thread-4 (]: On test.dvd_kpi.not_null_metric_store_monthly_metric_key.530b6773fb: BEGIN
+[0m05:32:47.273532 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m05:32:47.277258 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m05:32:47.279810 [debug] [Thread-2 (]: SQL status: BEGIN in 0.017 seconds
+[0m05:32:47.283345 [debug] [Thread-3 (]: SQL status: BEGIN in 0.015 seconds
+[0m05:32:47.286275 [debug] [Thread-2 (]: Using postgres connection "test.dvd_kpi.assert_metric_store_grain"
+[0m05:32:47.287853 [debug] [Thread-1 (]: SQL status: BEGIN in 0.014 seconds
+[0m05:32:47.289786 [debug] [Thread-3 (]: Using postgres connection "test.dvd_kpi.not_null_metric_store_monthly_metric_month.2368ed7b02"
+[0m05:32:47.291326 [debug] [Thread-4 (]: SQL status: BEGIN in 0.014 seconds
+[0m05:32:47.292565 [debug] [Thread-2 (]: On test.dvd_kpi.assert_metric_store_grain: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "test.dvd_kpi.assert_metric_store_grain"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      select
+ metric_month,
+ store_id,
+ metric_key,
+ count(*) as row_count
+from "dvdrental"."dbt_metrics"."metric_store_monthly"
+group by metric_month, store_id, metric_key
+having count(*) > 1
+      
+    ) dbt_internal_test
+[0m05:32:47.294590 [debug] [Thread-1 (]: Using postgres connection "test.dvd_kpi.not_null_metric_store_monthly_metric_value.b59e8aba5c"
+[0m05:32:47.296738 [debug] [Thread-3 (]: On test.dvd_kpi.not_null_metric_store_monthly_metric_month.2368ed7b02: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "test.dvd_kpi.not_null_metric_store_monthly_metric_month.2368ed7b02"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select metric_month
+from "dvdrental"."dbt_metrics"."metric_store_monthly"
+where metric_month is null
+
+
+
+      
+    ) dbt_internal_test
+[0m05:32:47.299175 [debug] [Thread-4 (]: Using postgres connection "test.dvd_kpi.not_null_metric_store_monthly_metric_key.530b6773fb"
+[0m05:32:47.302369 [debug] [Thread-1 (]: On test.dvd_kpi.not_null_metric_store_monthly_metric_value.b59e8aba5c: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "test.dvd_kpi.not_null_metric_store_monthly_metric_value.b59e8aba5c"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select metric_value
+from (select * from "dvdrental"."dbt_metrics"."metric_store_monthly" where metric_key NOT IN ('M004', 'M005')) dbt_subquery
+where metric_value is null
+
+
+
+      
+    ) dbt_internal_test
+[0m05:32:47.307034 [debug] [Thread-4 (]: On test.dvd_kpi.not_null_metric_store_monthly_metric_key.530b6773fb: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "test.dvd_kpi.not_null_metric_store_monthly_metric_key.530b6773fb"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select metric_key
+from "dvdrental"."dbt_metrics"."metric_store_monthly"
+where metric_key is null
+
+
+
+      
+    ) dbt_internal_test
+[0m05:32:47.317602 [debug] [Thread-4 (]: SQL status: SELECT 1 in 0.007 seconds
+[0m05:32:47.322299 [debug] [Thread-4 (]: On test.dvd_kpi.not_null_metric_store_monthly_metric_key.530b6773fb: ROLLBACK
+[0m05:32:47.325265 [debug] [Thread-4 (]: On test.dvd_kpi.not_null_metric_store_monthly_metric_key.530b6773fb: Close
+[0m05:32:47.328006 [info ] [Thread-4 (]: 20 of 30 PASS not_null_metric_store_monthly_metric_key ......................... [[32mPASS[0m in 0.17s]
+[0m05:32:47.332705 [debug] [Thread-4 (]: Finished running node test.dvd_kpi.not_null_metric_store_monthly_metric_key.530b6773fb
+[0m05:32:47.334634 [debug] [Thread-4 (]: Began running node test.dvd_kpi.not_null_metric_store_monthly_store_id.70a11be8ad
+[0m05:32:47.336842 [info ] [Thread-4 (]: 23 of 30 START test not_null_metric_store_monthly_store_id ..................... [RUN]
+[0m05:32:47.339439 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.dvd_kpi.not_null_metric_store_monthly_metric_key.530b6773fb, now test.dvd_kpi.not_null_metric_store_monthly_store_id.70a11be8ad)
+[0m05:32:47.341590 [debug] [Thread-4 (]: Began compiling node test.dvd_kpi.not_null_metric_store_monthly_store_id.70a11be8ad
+[0m05:32:47.350996 [debug] [Thread-4 (]: Writing injected SQL for node "test.dvd_kpi.not_null_metric_store_monthly_store_id.70a11be8ad"
+[0m05:32:47.367615 [debug] [Thread-4 (]: Began executing node test.dvd_kpi.not_null_metric_store_monthly_store_id.70a11be8ad
+[0m05:32:47.373406 [debug] [Thread-4 (]: Writing runtime sql for node "test.dvd_kpi.not_null_metric_store_monthly_store_id.70a11be8ad"
+[0m05:32:47.386528 [debug] [Thread-4 (]: Using postgres connection "test.dvd_kpi.not_null_metric_store_monthly_store_id.70a11be8ad"
+[0m05:32:47.388250 [debug] [Thread-4 (]: On test.dvd_kpi.not_null_metric_store_monthly_store_id.70a11be8ad: BEGIN
+[0m05:32:47.389799 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m05:32:47.399590 [debug] [Thread-4 (]: SQL status: BEGIN in 0.010 seconds
+[0m05:32:47.401669 [debug] [Thread-4 (]: Using postgres connection "test.dvd_kpi.not_null_metric_store_monthly_store_id.70a11be8ad"
+[0m05:32:47.403781 [debug] [Thread-4 (]: On test.dvd_kpi.not_null_metric_store_monthly_store_id.70a11be8ad: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "test.dvd_kpi.not_null_metric_store_monthly_store_id.70a11be8ad"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select store_id
+from "dvdrental"."dbt_metrics"."metric_store_monthly"
+where store_id is null
+
+
+
+      
+    ) dbt_internal_test
+[0m05:32:47.409284 [debug] [Thread-3 (]: SQL status: SELECT 1 in 0.104 seconds
+[0m05:32:47.411049 [debug] [Thread-2 (]: SQL status: SELECT 1 in 0.110 seconds
+[0m05:32:47.414087 [debug] [Thread-3 (]: On test.dvd_kpi.not_null_metric_store_monthly_metric_month.2368ed7b02: ROLLBACK
+[0m05:32:47.414959 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.106 seconds
+[0m05:32:47.417818 [debug] [Thread-2 (]: On test.dvd_kpi.assert_metric_store_grain: ROLLBACK
+[0m05:32:47.420097 [debug] [Thread-3 (]: On test.dvd_kpi.not_null_metric_store_monthly_metric_month.2368ed7b02: Close
+[0m05:32:47.423699 [debug] [Thread-1 (]: On test.dvd_kpi.not_null_metric_store_monthly_metric_value.b59e8aba5c: ROLLBACK
+[0m05:32:47.425784 [debug] [Thread-2 (]: On test.dvd_kpi.assert_metric_store_grain: Close
+[0m05:32:47.428201 [info ] [Thread-3 (]: 21 of 30 PASS not_null_metric_store_monthly_metric_month ....................... [[32mPASS[0m in 0.26s]
+[0m05:32:47.430142 [debug] [Thread-1 (]: On test.dvd_kpi.not_null_metric_store_monthly_metric_value.b59e8aba5c: Close
+[0m05:32:47.431895 [info ] [Thread-2 (]: 19 of 30 PASS assert_metric_store_grain ........................................ [[32mPASS[0m in 0.27s]
+[0m05:32:47.434008 [debug] [Thread-3 (]: Finished running node test.dvd_kpi.not_null_metric_store_monthly_metric_month.2368ed7b02
+[0m05:32:47.436625 [info ] [Thread-1 (]: 22 of 30 PASS not_null_metric_store_monthly_metric_value ....................... [[32mPASS[0m in 0.27s]
+[0m05:32:47.437941 [debug] [Thread-2 (]: Finished running node test.dvd_kpi.assert_metric_store_grain
+[0m05:32:47.440010 [debug] [Thread-3 (]: Began running node test.dvd_kpi.relationships_metric_store_monthly_metric_key__metric_key__ref_metric_definition_.078e1704ab
+[0m05:32:47.441802 [debug] [Thread-1 (]: Finished running node test.dvd_kpi.not_null_metric_store_monthly_metric_value.b59e8aba5c
+[0m05:32:47.443055 [debug] [Thread-2 (]: Began running node test.dvd_kpi.assert_late_return_rate_range
+[0m05:32:47.444732 [info ] [Thread-3 (]: 24 of 30 START test relationships_metric_store_monthly_metric_key__metric_key__ref_metric_definition_  [RUN]
+[0m05:32:47.446700 [debug] [Thread-1 (]: Began running node test.dvd_kpi.assert_metric_company_grain
+[0m05:32:47.448367 [info ] [Thread-2 (]: 25 of 30 START test assert_late_return_rate_range .............................. [RUN]
+[0m05:32:47.449700 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.dvd_kpi.not_null_metric_store_monthly_metric_month.2368ed7b02, now test.dvd_kpi.relationships_metric_store_monthly_metric_key__metric_key__ref_metric_definition_.078e1704ab)
+[0m05:32:47.451335 [info ] [Thread-1 (]: 26 of 30 START test assert_metric_company_grain ................................ [RUN]
+[0m05:32:47.453188 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.dvd_kpi.assert_metric_store_grain, now test.dvd_kpi.assert_late_return_rate_range)
+[0m05:32:47.454836 [debug] [Thread-3 (]: Began compiling node test.dvd_kpi.relationships_metric_store_monthly_metric_key__metric_key__ref_metric_definition_.078e1704ab
+[0m05:32:47.456522 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.dvd_kpi.not_null_metric_store_monthly_metric_value.b59e8aba5c, now test.dvd_kpi.assert_metric_company_grain)
+[0m05:32:47.459284 [debug] [Thread-2 (]: Began compiling node test.dvd_kpi.assert_late_return_rate_range
+[0m05:32:47.470210 [debug] [Thread-3 (]: Writing injected SQL for node "test.dvd_kpi.relationships_metric_store_monthly_metric_key__metric_key__ref_metric_definition_.078e1704ab"
+[0m05:32:47.472319 [debug] [Thread-1 (]: Began compiling node test.dvd_kpi.assert_metric_company_grain
+[0m05:32:47.478058 [debug] [Thread-2 (]: Writing injected SQL for node "test.dvd_kpi.assert_late_return_rate_range"
+[0m05:32:47.484982 [debug] [Thread-1 (]: Writing injected SQL for node "test.dvd_kpi.assert_metric_company_grain"
+[0m05:32:47.486088 [debug] [Thread-4 (]: SQL status: SELECT 1 in 0.081 seconds
+[0m05:32:47.491336 [debug] [Thread-4 (]: On test.dvd_kpi.not_null_metric_store_monthly_store_id.70a11be8ad: ROLLBACK
+[0m05:32:47.493672 [debug] [Thread-2 (]: Began executing node test.dvd_kpi.assert_late_return_rate_range
+[0m05:32:47.494593 [debug] [Thread-3 (]: Began executing node test.dvd_kpi.relationships_metric_store_monthly_metric_key__metric_key__ref_metric_definition_.078e1704ab
+[0m05:32:47.495356 [debug] [Thread-4 (]: On test.dvd_kpi.not_null_metric_store_monthly_store_id.70a11be8ad: Close
+[0m05:32:47.501583 [debug] [Thread-1 (]: Began executing node test.dvd_kpi.assert_metric_company_grain
+[0m05:32:47.502808 [debug] [Thread-2 (]: Writing runtime sql for node "test.dvd_kpi.assert_late_return_rate_range"
+[0m05:32:47.506266 [debug] [Thread-3 (]: Writing runtime sql for node "test.dvd_kpi.relationships_metric_store_monthly_metric_key__metric_key__ref_metric_definition_.078e1704ab"
+[0m05:32:47.508988 [info ] [Thread-4 (]: 23 of 30 PASS not_null_metric_store_monthly_store_id ........................... [[32mPASS[0m in 0.17s]
+[0m05:32:47.512918 [debug] [Thread-1 (]: Writing runtime sql for node "test.dvd_kpi.assert_metric_company_grain"
+[0m05:32:47.517033 [debug] [Thread-4 (]: Finished running node test.dvd_kpi.not_null_metric_store_monthly_store_id.70a11be8ad
+[0m05:32:47.520038 [debug] [Thread-4 (]: Began running node test.dvd_kpi.not_null_metric_company_monthly_metric_key.7ebc68cc06
+[0m05:32:47.522914 [debug] [Thread-2 (]: Using postgres connection "test.dvd_kpi.assert_late_return_rate_range"
+[0m05:32:47.523643 [debug] [Thread-3 (]: Using postgres connection "test.dvd_kpi.relationships_metric_store_monthly_metric_key__metric_key__ref_metric_definition_.078e1704ab"
+[0m05:32:47.522073 [info ] [Thread-4 (]: 27 of 30 START test not_null_metric_company_monthly_metric_key ................. [RUN]
+[0m05:32:47.525357 [debug] [Thread-2 (]: On test.dvd_kpi.assert_late_return_rate_range: BEGIN
+[0m05:32:47.526457 [debug] [Thread-1 (]: Using postgres connection "test.dvd_kpi.assert_metric_company_grain"
+[0m05:32:47.527900 [debug] [Thread-3 (]: On test.dvd_kpi.relationships_metric_store_monthly_metric_key__metric_key__ref_metric_definition_.078e1704ab: BEGIN
+[0m05:32:47.530141 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.dvd_kpi.not_null_metric_store_monthly_store_id.70a11be8ad, now test.dvd_kpi.not_null_metric_company_monthly_metric_key.7ebc68cc06)
+[0m05:32:47.532127 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m05:32:47.534110 [debug] [Thread-1 (]: On test.dvd_kpi.assert_metric_company_grain: BEGIN
+[0m05:32:47.536536 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m05:32:47.539115 [debug] [Thread-4 (]: Began compiling node test.dvd_kpi.not_null_metric_company_monthly_metric_key.7ebc68cc06
+[0m05:32:47.541998 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m05:32:47.551707 [debug] [Thread-4 (]: Writing injected SQL for node "test.dvd_kpi.not_null_metric_company_monthly_metric_key.7ebc68cc06"
+[0m05:32:47.553255 [debug] [Thread-2 (]: SQL status: BEGIN in 0.021 seconds
+[0m05:32:47.554233 [debug] [Thread-3 (]: SQL status: BEGIN in 0.018 seconds
+[0m05:32:47.558883 [debug] [Thread-2 (]: Using postgres connection "test.dvd_kpi.assert_late_return_rate_range"
+[0m05:32:47.561472 [debug] [Thread-3 (]: Using postgres connection "test.dvd_kpi.relationships_metric_store_monthly_metric_key__metric_key__ref_metric_definition_.078e1704ab"
+[0m05:32:47.563822 [debug] [Thread-1 (]: SQL status: BEGIN in 0.022 seconds
+[0m05:32:47.566409 [debug] [Thread-2 (]: On test.dvd_kpi.assert_late_return_rate_range: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "test.dvd_kpi.assert_late_return_rate_range"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      select
+ 'company'::varchar as source_model,
+ metric_month,
+ null::integer as store_id,
+ metric_value
+from "dvdrental"."dbt_metrics"."metric_company_monthly"
+where metric_key = 'M005'
+ and (metric_value < 0 or metric_value > 1)
+union all
+select
+ 'store'::varchar as source_model,
+ metric_month,
+ store_id,
+ metric_value
+from "dvdrental"."dbt_metrics"."metric_store_monthly"
+where metric_key = 'M005'
+ and (metric_value < 0 or metric_value > 1)
+      
+    ) dbt_internal_test
+[0m05:32:47.568858 [debug] [Thread-3 (]: On test.dvd_kpi.relationships_metric_store_monthly_metric_key__metric_key__ref_metric_definition_.078e1704ab: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "test.dvd_kpi.relationships_metric_store_monthly_metric_key__metric_key__ref_metric_definition_.078e1704ab"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+with child as (
+    select metric_key as from_field
+    from "dvdrental"."dbt_metrics"."metric_store_monthly"
+    where metric_key is not null
+),
+
+parent as (
+    select metric_key as to_field
+    from "dvdrental"."dbt_metadata"."metric_definition"
+)
+
+select
+    from_field
+
+from child
+left join parent
+    on child.from_field = parent.to_field
+
+where parent.to_field is null
+
+
+
+      
+    ) dbt_internal_test
+[0m05:32:47.571205 [debug] [Thread-1 (]: Using postgres connection "test.dvd_kpi.assert_metric_company_grain"
+[0m05:32:47.575132 [debug] [Thread-4 (]: Began executing node test.dvd_kpi.not_null_metric_company_monthly_metric_key.7ebc68cc06
+[0m05:32:47.579241 [debug] [Thread-1 (]: On test.dvd_kpi.assert_metric_company_grain: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "test.dvd_kpi.assert_metric_company_grain"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      select
+ metric_month,
+ metric_key,
+ count(*) as row_count
+from "dvdrental"."dbt_metrics"."metric_company_monthly"
+group by metric_month, metric_key
+having count(*) > 1
+      
+    ) dbt_internal_test
+[0m05:32:47.584940 [debug] [Thread-4 (]: Writing runtime sql for node "test.dvd_kpi.not_null_metric_company_monthly_metric_key.7ebc68cc06"
+[0m05:32:47.600731 [debug] [Thread-4 (]: Using postgres connection "test.dvd_kpi.not_null_metric_company_monthly_metric_key.7ebc68cc06"
+[0m05:32:47.603168 [debug] [Thread-4 (]: On test.dvd_kpi.not_null_metric_company_monthly_metric_key.7ebc68cc06: BEGIN
+[0m05:32:47.605216 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m05:32:47.615229 [debug] [Thread-4 (]: SQL status: BEGIN in 0.009 seconds
+[0m05:32:47.617880 [debug] [Thread-4 (]: Using postgres connection "test.dvd_kpi.not_null_metric_company_monthly_metric_key.7ebc68cc06"
+[0m05:32:47.619750 [debug] [Thread-4 (]: On test.dvd_kpi.not_null_metric_company_monthly_metric_key.7ebc68cc06: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "test.dvd_kpi.not_null_metric_company_monthly_metric_key.7ebc68cc06"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select metric_key
+from "dvdrental"."dbt_metrics"."metric_company_monthly"
+where metric_key is null
+
+
+
+      
+    ) dbt_internal_test
+[0m05:32:47.627421 [debug] [Thread-4 (]: SQL status: SELECT 1 in 0.006 seconds
+[0m05:32:47.631903 [debug] [Thread-4 (]: On test.dvd_kpi.not_null_metric_company_monthly_metric_key.7ebc68cc06: ROLLBACK
+[0m05:32:47.634426 [debug] [Thread-4 (]: On test.dvd_kpi.not_null_metric_company_monthly_metric_key.7ebc68cc06: Close
+[0m05:32:47.637218 [info ] [Thread-4 (]: 27 of 30 PASS not_null_metric_company_monthly_metric_key ....................... [[32mPASS[0m in 0.11s]
+[0m05:32:47.641317 [debug] [Thread-4 (]: Finished running node test.dvd_kpi.not_null_metric_company_monthly_metric_key.7ebc68cc06
+[0m05:32:47.645044 [debug] [Thread-4 (]: Began running node test.dvd_kpi.not_null_metric_company_monthly_metric_month.d5dbaf53dc
+[0m05:32:47.648675 [info ] [Thread-4 (]: 28 of 30 START test not_null_metric_company_monthly_metric_month ............... [RUN]
+[0m05:32:47.689226 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.dvd_kpi.not_null_metric_company_monthly_metric_key.7ebc68cc06, now test.dvd_kpi.not_null_metric_company_monthly_metric_month.d5dbaf53dc)
+[0m05:32:47.698191 [debug] [Thread-4 (]: Began compiling node test.dvd_kpi.not_null_metric_company_monthly_metric_month.d5dbaf53dc
+[0m05:32:47.707548 [debug] [Thread-4 (]: Writing injected SQL for node "test.dvd_kpi.not_null_metric_company_monthly_metric_month.d5dbaf53dc"
+[0m05:32:47.708551 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.121 seconds
+[0m05:32:47.712478 [debug] [Thread-1 (]: On test.dvd_kpi.assert_metric_company_grain: ROLLBACK
+[0m05:32:47.714243 [debug] [Thread-1 (]: On test.dvd_kpi.assert_metric_company_grain: Close
+[0m05:32:47.716256 [info ] [Thread-1 (]: 26 of 30 PASS assert_metric_company_grain ...................................... [[32mPASS[0m in 0.26s]
+[0m05:32:47.719268 [debug] [Thread-3 (]: SQL status: SELECT 1 in 0.144 seconds
+[0m05:32:47.725200 [debug] [Thread-1 (]: Finished running node test.dvd_kpi.assert_metric_company_grain
+[0m05:32:47.729536 [debug] [Thread-3 (]: On test.dvd_kpi.relationships_metric_store_monthly_metric_key__metric_key__ref_metric_definition_.078e1704ab: ROLLBACK
+[0m05:32:47.730364 [debug] [Thread-4 (]: Began executing node test.dvd_kpi.not_null_metric_company_monthly_metric_month.d5dbaf53dc
+[0m05:32:47.731772 [debug] [Thread-1 (]: Began running node test.dvd_kpi.not_null_metric_company_monthly_metric_value.a54825b81d
+[0m05:32:47.733877 [debug] [Thread-3 (]: On test.dvd_kpi.relationships_metric_store_monthly_metric_key__metric_key__ref_metric_definition_.078e1704ab: Close
+[0m05:32:47.737684 [debug] [Thread-4 (]: Writing runtime sql for node "test.dvd_kpi.not_null_metric_company_monthly_metric_month.d5dbaf53dc"
+[0m05:32:47.739531 [info ] [Thread-1 (]: 29 of 30 START test not_null_metric_company_monthly_metric_value ............... [RUN]
+[0m05:32:47.741583 [info ] [Thread-3 (]: 24 of 30 PASS relationships_metric_store_monthly_metric_key__metric_key__ref_metric_definition_  [[32mPASS[0m in 0.29s]
+[0m05:32:47.744345 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.dvd_kpi.assert_metric_company_grain, now test.dvd_kpi.not_null_metric_company_monthly_metric_value.a54825b81d)
+[0m05:32:47.746532 [debug] [Thread-3 (]: Finished running node test.dvd_kpi.relationships_metric_store_monthly_metric_key__metric_key__ref_metric_definition_.078e1704ab
+[0m05:32:47.748059 [debug] [Thread-1 (]: Began compiling node test.dvd_kpi.not_null_metric_company_monthly_metric_value.a54825b81d
+[0m05:32:47.749841 [debug] [Thread-3 (]: Began running node test.dvd_kpi.relationships_metric_company_monthly_metric_key__metric_key__ref_metric_definition_.4430501667
+[0m05:32:47.757616 [debug] [Thread-1 (]: Writing injected SQL for node "test.dvd_kpi.not_null_metric_company_monthly_metric_value.a54825b81d"
+[0m05:32:47.759259 [info ] [Thread-3 (]: 30 of 30 START test relationships_metric_company_monthly_metric_key__metric_key__ref_metric_definition_  [RUN]
+[0m05:32:47.760217 [debug] [Thread-4 (]: Using postgres connection "test.dvd_kpi.not_null_metric_company_monthly_metric_month.d5dbaf53dc"
+[0m05:32:47.763342 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.dvd_kpi.relationships_metric_store_monthly_metric_key__metric_key__ref_metric_definition_.078e1704ab, now test.dvd_kpi.relationships_metric_company_monthly_metric_key__metric_key__ref_metric_definition_.4430501667)
+[0m05:32:47.765259 [debug] [Thread-4 (]: On test.dvd_kpi.not_null_metric_company_monthly_metric_month.d5dbaf53dc: BEGIN
+[0m05:32:47.767174 [debug] [Thread-3 (]: Began compiling node test.dvd_kpi.relationships_metric_company_monthly_metric_key__metric_key__ref_metric_definition_.4430501667
+[0m05:32:47.769312 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m05:32:47.777641 [debug] [Thread-3 (]: Writing injected SQL for node "test.dvd_kpi.relationships_metric_company_monthly_metric_key__metric_key__ref_metric_definition_.4430501667"
+[0m05:32:47.778682 [debug] [Thread-2 (]: SQL status: SELECT 1 in 0.205 seconds
+[0m05:32:47.781530 [debug] [Thread-1 (]: Began executing node test.dvd_kpi.not_null_metric_company_monthly_metric_value.a54825b81d
+[0m05:32:47.785696 [debug] [Thread-2 (]: On test.dvd_kpi.assert_late_return_rate_range: ROLLBACK
+[0m05:32:47.787368 [debug] [Thread-4 (]: SQL status: BEGIN in 0.018 seconds
+[0m05:32:47.792467 [debug] [Thread-1 (]: Writing runtime sql for node "test.dvd_kpi.not_null_metric_company_monthly_metric_value.a54825b81d"
+[0m05:32:47.795018 [debug] [Thread-2 (]: On test.dvd_kpi.assert_late_return_rate_range: Close
+[0m05:32:47.795891 [debug] [Thread-3 (]: Began executing node test.dvd_kpi.relationships_metric_company_monthly_metric_key__metric_key__ref_metric_definition_.4430501667
+[0m05:32:47.796786 [debug] [Thread-4 (]: Using postgres connection "test.dvd_kpi.not_null_metric_company_monthly_metric_month.d5dbaf53dc"
+[0m05:32:47.800248 [info ] [Thread-2 (]: 25 of 30 PASS assert_late_return_rate_range .................................... [[32mPASS[0m in 0.35s]
+[0m05:32:47.804529 [debug] [Thread-3 (]: Writing runtime sql for node "test.dvd_kpi.relationships_metric_company_monthly_metric_key__metric_key__ref_metric_definition_.4430501667"
+[0m05:32:47.805949 [debug] [Thread-4 (]: On test.dvd_kpi.not_null_metric_company_monthly_metric_month.d5dbaf53dc: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "test.dvd_kpi.not_null_metric_company_monthly_metric_month.d5dbaf53dc"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select metric_month
+from "dvdrental"."dbt_metrics"."metric_company_monthly"
+where metric_month is null
+
+
+
+      
+    ) dbt_internal_test
+[0m05:32:47.807634 [debug] [Thread-2 (]: Finished running node test.dvd_kpi.assert_late_return_rate_range
+[0m05:32:47.810572 [debug] [Thread-1 (]: Using postgres connection "test.dvd_kpi.not_null_metric_company_monthly_metric_value.a54825b81d"
+[0m05:32:47.813333 [debug] [Thread-3 (]: Using postgres connection "test.dvd_kpi.relationships_metric_company_monthly_metric_key__metric_key__ref_metric_definition_.4430501667"
+[0m05:32:47.814684 [debug] [Thread-1 (]: On test.dvd_kpi.not_null_metric_company_monthly_metric_value.a54825b81d: BEGIN
+[0m05:32:47.816696 [debug] [Thread-3 (]: On test.dvd_kpi.relationships_metric_company_monthly_metric_key__metric_key__ref_metric_definition_.4430501667: BEGIN
+[0m05:32:47.818706 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m05:32:47.820714 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m05:32:47.829570 [debug] [Thread-1 (]: SQL status: BEGIN in 0.011 seconds
+[0m05:32:47.830920 [debug] [Thread-3 (]: SQL status: BEGIN in 0.010 seconds
+[0m05:32:47.832223 [debug] [Thread-1 (]: Using postgres connection "test.dvd_kpi.not_null_metric_company_monthly_metric_value.a54825b81d"
+[0m05:32:47.833856 [debug] [Thread-3 (]: Using postgres connection "test.dvd_kpi.relationships_metric_company_monthly_metric_key__metric_key__ref_metric_definition_.4430501667"
+[0m05:32:47.835540 [debug] [Thread-1 (]: On test.dvd_kpi.not_null_metric_company_monthly_metric_value.a54825b81d: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "test.dvd_kpi.not_null_metric_company_monthly_metric_value.a54825b81d"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select metric_value
+from (select * from "dvdrental"."dbt_metrics"."metric_company_monthly" where metric_key NOT IN ('M004', 'M005')) dbt_subquery
+where metric_value is null
+
+
+
+      
+    ) dbt_internal_test
+[0m05:32:47.836993 [debug] [Thread-3 (]: On test.dvd_kpi.relationships_metric_company_monthly_metric_key__metric_key__ref_metric_definition_.4430501667: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "dvd_kpi", "target_name": "dev", "node_id": "test.dvd_kpi.relationships_metric_company_monthly_metric_key__metric_key__ref_metric_definition_.4430501667"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+with child as (
+    select metric_key as from_field
+    from "dvdrental"."dbt_metrics"."metric_company_monthly"
+    where metric_key is not null
+),
+
+parent as (
+    select metric_key as to_field
+    from "dvdrental"."dbt_metadata"."metric_definition"
+)
+
+select
+    from_field
+
+from child
+left join parent
+    on child.from_field = parent.to_field
+
+where parent.to_field is null
+
+
+
+      
+    ) dbt_internal_test
+[0m05:32:47.877923 [debug] [Thread-4 (]: SQL status: SELECT 1 in 0.068 seconds
+[0m05:32:47.880739 [debug] [Thread-4 (]: On test.dvd_kpi.not_null_metric_company_monthly_metric_month.d5dbaf53dc: ROLLBACK
+[0m05:32:47.882393 [debug] [Thread-4 (]: On test.dvd_kpi.not_null_metric_company_monthly_metric_month.d5dbaf53dc: Close
+[0m05:32:47.884199 [info ] [Thread-4 (]: 28 of 30 PASS not_null_metric_company_monthly_metric_month ..................... [[32mPASS[0m in 0.20s]
+[0m05:32:47.886026 [debug] [Thread-4 (]: Finished running node test.dvd_kpi.not_null_metric_company_monthly_metric_month.d5dbaf53dc
+[0m05:32:47.902785 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.064 seconds
+[0m05:32:47.903480 [debug] [Thread-3 (]: SQL status: SELECT 1 in 0.064 seconds
+[0m05:32:47.905878 [debug] [Thread-1 (]: On test.dvd_kpi.not_null_metric_company_monthly_metric_value.a54825b81d: ROLLBACK
+[0m05:32:47.908925 [debug] [Thread-3 (]: On test.dvd_kpi.relationships_metric_company_monthly_metric_key__metric_key__ref_metric_definition_.4430501667: ROLLBACK
+[0m05:32:47.910732 [debug] [Thread-1 (]: On test.dvd_kpi.not_null_metric_company_monthly_metric_value.a54825b81d: Close
+[0m05:32:47.911993 [debug] [Thread-3 (]: On test.dvd_kpi.relationships_metric_company_monthly_metric_key__metric_key__ref_metric_definition_.4430501667: Close
+[0m05:32:47.913783 [info ] [Thread-1 (]: 29 of 30 PASS not_null_metric_company_monthly_metric_value ..................... [[32mPASS[0m in 0.17s]
+[0m05:32:47.915682 [info ] [Thread-3 (]: 30 of 30 PASS relationships_metric_company_monthly_metric_key__metric_key__ref_metric_definition_  [[32mPASS[0m in 0.15s]
+[0m05:32:47.917497 [debug] [Thread-1 (]: Finished running node test.dvd_kpi.not_null_metric_company_monthly_metric_value.a54825b81d
+[0m05:32:47.919794 [debug] [Thread-3 (]: Finished running node test.dvd_kpi.relationships_metric_company_monthly_metric_key__metric_key__ref_metric_definition_.4430501667
+[0m05:32:47.923781 [debug] [MainThread]: Using postgres connection "master"
+[0m05:32:47.925157 [debug] [MainThread]: On master: BEGIN
+[0m05:32:47.926370 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m05:32:47.933052 [debug] [MainThread]: SQL status: BEGIN in 0.007 seconds
+[0m05:32:47.934580 [debug] [MainThread]: On master: COMMIT
+[0m05:32:47.935576 [debug] [MainThread]: Using postgres connection "master"
+[0m05:32:47.936710 [debug] [MainThread]: On master: COMMIT
+[0m05:32:47.938196 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m05:32:47.939608 [debug] [MainThread]: On master: Close
+[0m05:32:47.941012 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m05:32:47.942203 [debug] [MainThread]: Connection 'test.dvd_kpi.not_null_metric_company_monthly_metric_month.d5dbaf53dc' was properly closed.
+[0m05:32:47.943703 [debug] [MainThread]: Connection 'test.dvd_kpi.assert_late_return_rate_range' was properly closed.
+[0m05:32:47.945154 [debug] [MainThread]: Connection 'test.dvd_kpi.relationships_metric_company_monthly_metric_key__metric_key__ref_metric_definition_.4430501667' was properly closed.
+[0m05:32:47.946343 [debug] [MainThread]: Connection 'test.dvd_kpi.not_null_metric_company_monthly_metric_value.a54825b81d' was properly closed.
+[0m05:32:47.948196 [info ] [MainThread]: 
+[0m05:32:47.949994 [info ] [MainThread]: Finished running 1 seed, 21 data tests, 8 view models in 0 hours 0 minutes and 2.24 seconds (2.24s).
+[0m05:32:47.957702 [debug] [MainThread]: Command end result
+[0m05:32:48.020963 [debug] [MainThread]: Wrote artifact WritableManifest to /usr/app/dvd_kpi/target/manifest.json
+[0m05:32:48.030821 [debug] [MainThread]: Wrote artifact SemanticManifest to /usr/app/dvd_kpi/target/semantic_manifest.json
+[0m05:32:48.051160 [debug] [MainThread]: Wrote artifact RunExecutionResult to /usr/app/dvd_kpi/target/run_results.json
+[0m05:32:48.053166 [info ] [MainThread]: 
+[0m05:32:48.055565 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m05:32:48.058394 [info ] [MainThread]: 
+[0m05:32:48.060330 [info ] [MainThread]: Done. PASS=30 WARN=0 ERROR=0 SKIP=0 TOTAL=30
+[0m05:32:48.063419 [debug] [MainThread]: Resource report: {"command_name": "build", "command_success": true, "command_wall_clock_time": 4.233139, "process_in_blocks": "2000", "process_kernel_time": 0.52255, "process_mem_max_rss": "118684", "process_out_blocks": "0", "process_user_time": 4.029667}
+[0m05:32:48.065551 [debug] [MainThread]: Command `dbt build` succeeded at 05:32:48.065269 after 4.24 seconds
+[0m05:32:48.067403 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc45e425dc0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc45e45f680>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc45c308830>]}
+[0m05:32:48.069270 [debug] [MainThread]: Flushing usage events
+[0m05:32:49.357852 [debug] [MainThread]: An error was encountered while trying to flush usage events

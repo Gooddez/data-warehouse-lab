@@ -1,0 +1,165 @@
+version: 2
+
+models:
+  - name: stg_coffee_sales
+    description: "ข้อมูลการขายที่ปรับชนิดข้อมูลและจัดการค่าว่างแล้ว"
+    columns:
+      - name: sale_id
+        description: "รหัสรายการขาย"
+        data_tests: [not_null, unique]
+      - name: invoice_number
+        description: "หมายเลขใบเสร็จ"
+        data_tests: [not_null]
+      - name: sale_date
+        description: "วันที่ขาย"
+        data_tests: [not_null]
+      - name: customer_code
+        description: "รหัสลูกค้า"
+        data_tests: [not_null]
+      - name: product_code
+        description: "รหัสสินค้า"
+        data_tests: [not_null]
+      - name: store_code
+        description: "รหัสสาขา"
+        data_tests: [not_null]
+      - name: staff_code
+        description: "รหัสพนักงาน"
+        data_tests: [not_null]
+      - name: promo_code
+        description: "รหัสโปรโมชัน หรือ NO_PROMO"
+        data_tests: [not_null]
+
+  - name: dim_date
+    description: "มิติวันที่"
+    columns:
+      - name: date_key
+        description: "Surrogate key ของวันที่ รูปแบบ YYYYMMDD"
+        data_tests: [not_null, unique]
+      - name: full_date
+        description: "วันที่ปฏิทิน"
+        data_tests: [not_null, unique]
+
+  - name: dim_customer
+    description: "มิติลูกค้า"
+    columns:
+      - name: customer_key
+        description: "Surrogate key ของลูกค้า"
+        data_tests: [not_null, unique]
+      - name: customer_code
+        description: "Business key ของลูกค้า"
+        data_tests: [not_null, unique]
+
+  - name: dim_product
+    description: "มิติสินค้า"
+    columns:
+      - name: product_key
+        description: "Surrogate key ของสินค้า"
+        data_tests: [not_null, unique]
+      - name: product_code
+        description: "Business key ของสินค้า"
+        data_tests: [not_null, unique]
+
+  - name: dim_store
+    description: "มิติสาขา"
+    columns:
+      - name: store_key
+        description: "Surrogate key ของสาขา"
+        data_tests: [not_null, unique]
+      - name: store_code
+        description: "Business key ของสาขา"
+        data_tests: [not_null, unique]
+
+  - name: dim_staff
+    description: "มิติพนักงาน"
+    columns:
+      - name: staff_key
+        description: "Surrogate key ของพนักงาน"
+        data_tests: [not_null, unique]
+      - name: staff_code
+        description: "Business key ของพนักงาน"
+        data_tests: [not_null, unique]
+
+  - name: dim_promotion
+    description: "มิติโปรโมชัน รวมสมาชิก NO_PROMO"
+    columns:
+      - name: promotion_key
+        description: "Surrogate key ของโปรโมชัน"
+        data_tests: [not_null, unique]
+      - name: promo_code
+        description: "Business key ของโปรโมชัน"
+        data_tests: [not_null, unique]
+
+  - name: fct_sales
+    description: "Fact การขาย โดย 1 แถวแทน 1 รายการขาย"
+    columns:
+      - name: sale_id
+        description: "รหัสรายการขายและ degenerate key ของ Fact"
+        data_tests: [not_null, unique]
+      - name: invoice_number
+        description: "หมายเลขใบเสร็จ"
+        data_tests: [not_null]
+      - name: date_key
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('dim_date')
+              field: date_key
+      - name: customer_key
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('dim_customer')
+              field: customer_key
+      - name: product_key
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('dim_product')
+              field: product_key
+      - name: store_key
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('dim_store')
+              field: store_key
+      - name: staff_key
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('dim_staff')
+              field: staff_key
+      - name: promotion_key
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('dim_promotion')
+              field: promotion_key
+      - name: quantity
+        data_tests: [not_null]
+      - name: revenue
+        data_tests: [not_null]
+      - name: discount_amount
+        data_tests: [not_null]
+      - name: points_redeemed
+        data_tests: [not_null]
+
+  - name: metric_m001_total_revenue
+    description: "M001 ยอดขายรวมรายเดือน"
+    columns:
+      - name: metric_key
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: ['M001']
+      - name: metric_month
+        data_tests: [not_null]
+      - name: dimension_key
+        data_tests: [not_null]
+      - name: dimension_name
+        data_tests: [not_null]
+      - name: metric_value
+        data_tests: [not_null]
+
+  # Repeat the same block for metric_m002 … metric_m008,
+  # changing the model name and the accepted_values list (e.g. ['M002']).
+  # metric_m008_top_category_by_staff also has a result_label column (not_null).

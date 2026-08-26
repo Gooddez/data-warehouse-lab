@@ -1,0 +1,31 @@
+
+  create view "coffee_dw_snowflake"."dbt_staging"."stg_coffee_sales__dbt_tmp"
+    
+    
+  as (
+    select
+    cast(sale_id as integer) as sale_id,
+    trim(invoice_number) as invoice_number,
+    cast(sale_date as date) as sale_date,
+    trim(customer_code) as customer_code,
+    trim(customer_name) as customer_name,
+    trim(gender) as gender,
+    cast(birth_year as integer) as birth_year,
+    trim(product_code) as product_code,
+    trim(product_name) as product_name,
+    lower(trim(category)) as category,
+    trim(size) as size,
+    cast(unit_price as numeric(10,2)) as unit_price,
+    cast(quantity as integer) as quantity,
+    cast(revenue as numeric(12,2)) as revenue,
+    trim(store_code) as store_code,
+    trim(store_name) as store_name,
+    trim(province) as province,
+    trim(staff_code) as staff_code,
+    trim(staff_name) as staff_name,
+    trim(position) as position,
+    nullif(trim(promo_code), '') as promo_code,
+    nullif(trim(promo_desc), '') as promo_desc,
+    cast(points_redeemed as integer) as points_redeemed
+from "coffee_dw_snowflake"."dbt_raw"."coffee_sales"
+  );

@@ -1,0 +1,12 @@
+
+    
+    
+    truncate table "coffee_dw_snowflake"."dbt_raw"."province_region_mapping";
+    -- dbt seed --
+    
+          insert into "coffee_dw_snowflake"."dbt_raw"."province_region_mapping" ("province_name", "region_name") values
+          (%s,%s),(%s,%s),(%s,%s)
+      
+
+;
+  

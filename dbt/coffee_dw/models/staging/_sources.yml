@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: public
+    tables:
+      - name: coffee_staging
+        columns:
+          - name: sale_id
+            data_tests:
+              - not_null
+              - unique
+          - name: sale_date
+            data_tests:
+              - not_null

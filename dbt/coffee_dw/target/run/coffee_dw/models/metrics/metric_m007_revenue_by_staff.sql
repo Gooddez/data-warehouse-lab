@@ -1,0 +1,16 @@
+
+  create view "coffee_dw"."dbt"."metric_m007_revenue_by_staff__dbt_tmp"
+    
+    
+  as (
+    select
+    'M007'::varchar                      as metric_key,
+    date_trunc('month', d.full_date)::date as metric_month,
+    s.staff_code::varchar                as dimension_key,
+    s.staff_name::varchar                as dimension_name,
+    sum(f.revenue)::numeric              as metric_value
+from "coffee_dw"."dbt"."fct_sales" f
+join "coffee_dw"."dbt"."dim_date" d using (date_key)
+join "coffee_dw"."dbt"."dim_staff" s using (staff_key)
+group by 1, 2, 3, 4
+  );

@@ -1,0 +1,24 @@
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      select
+ 'company'::varchar as source_model,
+ metric_month,
+ null::integer as store_id,
+ metric_value
+from "dvdrental"."dbt_metrics"."metric_company_monthly"
+where metric_key = 'M005'
+ and (metric_value < 0 or metric_value > 1)
+union all
+select
+ 'store'::varchar as source_model,
+ metric_month,
+ store_id,
+ metric_value
+from "dvdrental"."dbt_metrics"."metric_store_monthly"
+where metric_key = 'M005'
+ and (metric_value < 0 or metric_value > 1)
+      
+    ) dbt_internal_test

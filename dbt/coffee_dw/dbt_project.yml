@@ -1,0 +1,17 @@
+name: 'coffee_dw'
+version: '1.0.0'
+config-version: 2
+profile: 'coffee_dw'
+
+model-paths: ['models']
+
+models:
+  coffee_dw:
+    staging:
+      +materialized: view
+    dimensions:
+      +materialized: table
+    marts:
+      +materialized: table
+    metrics:
+      +materialized: view

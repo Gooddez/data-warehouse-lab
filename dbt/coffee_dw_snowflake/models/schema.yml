@@ -1,0 +1,195 @@
+version: 2
+
+models:
+  - name: stg_coffee_sales
+    description: Cleaned sales rows; grain is one sale_id.
+    columns:
+      - name: sale_id  
+        tests: [not_null, unique]
+      - name: customer_code
+        tests: [not_null]
+      - name: product_code
+        tests: [not_null]
+      - name: store_code
+        tests: [not_null]
+      - name: staff_code
+        tests: [not_null]
+      - name: sale_date
+        tests: [not_null]
+
+  - name: stg_province_region_mapping
+    description: Province-to-region mapping used by the geography hierarchy.
+    columns:
+      - name: province_name
+        tests: [not_null, unique]
+      - name: region_name
+        tests: [not_null]
+
+  - name: dim_customer
+    description: Customer dimension.
+    columns:
+      - name: customer_key
+        tests: [not_null, unique]
+      - name: customer_code
+        tests: [not_null, unique]
+
+  - name: dim_category
+    description: Top level of the product hierarchy.
+    columns:
+      - name: category_key
+        tests: [not_null, unique]
+      - name: category_name
+        tests: [not_null, unique]
+
+  - name: dim_product
+    description: Product dimension linked to dim_category.
+    columns:
+      - name: product_key
+        tests: [not_null, unique]
+      - name: product_code
+        tests: [not_null, unique]
+      - name: category_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_category')
+              field: category_key
+
+  - name: dim_region
+    description: Top level of the geography hierarchy.
+    columns:
+      - name: region_key
+        tests: [not_null, unique]
+      - name: region_name
+        tests: [not_null, unique]
+
+  - name: dim_province
+    description: Province level linked to dim_region.
+    columns:
+      - name: province_key
+        tests: [not_null, unique]
+      - name: province_name
+        tests: [not_null, unique]
+      - name: region_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_region')
+              field: region_key
+
+  - name: dim_store
+    description: Store dimension linked to dim_province.
+    columns:
+      - name: store_key
+        tests: [not_null, unique]
+      - name: store_code
+        tests: [not_null, unique]
+      - name: province_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_province')
+              field: province_key
+
+  - name: dim_position
+    description: Top level of the staff hierarchy.
+    columns:
+      - name: position_key
+        tests: [not_null, unique]
+      - name: position_name
+        tests: [not_null, unique]
+
+  - name: dim_staff
+    description: Staff dimension linked to dim_position.
+    columns:
+      - name: staff_key
+        tests: [not_null, unique]
+      - name: staff_code
+        tests: [not_null, unique]
+      - name: position_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_position')
+              field: position_key
+
+  - name: dim_promotion
+    description: Promotion dimension; non-promotion facts keep a null promo_key.
+    columns:
+      - name: promo_key
+        tests: [not_null, unique]
+      - name: promo_code
+        tests: [not_null, unique]
+
+  - name: dim_date
+    description: Calendar date dimension.
+    columns:
+      - name: date_key
+        tests: [not_null, unique]
+      - name: sale_date
+        tests: [not_null, unique]
+
+  - name: fct_sales
+    description: Sales fact; grain is one sale_id.
+    columns:
+      - name: sale_id
+        tests: [not_null, unique]
+      - name: date_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_date')
+              field: date_key
+      - name: customer_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_customer')
+              field: customer_key
+      - name: product_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_product')
+              field: product_key
+      - name: store_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_store')
+              field: store_key
+      - name: staff_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_staff')
+              field: staff_key
+      - name: promo_key
+        tests:
+          - relationships:
+              to: ref('dim_promotion')
+              field: promo_key
+      - name: revenue
+        tests: [not_null]
+
+  - name: hierarchy_def
+    description: Metadata that defines the order and fields of hierarchies.
+    columns:
+      - name: hierarchy_name
+        tests: [not_null]
+      - name: level_num
+        tests: [not_null]
+      - name: level_name
+        tests: [not_null]
+
+  - name: v_sales_geo_flat
+    description: Flattened geography view for Metabase.
+    columns:
+      - name: sale_date
+        tests: [not_null]
+      - name: province_name
+        tests: [not_null]
+      - name: region_name
+        tests: [not_null]
+      - name: revenue
+        tests: [not_null]

@@ -1,0 +1,145 @@
+version: 2
+
+seeds:
+  - name: coffee_sales_scd
+    description: ข้อมูลยอดขายทั้งหมดที่ใช้จำลองการโหลดสองรอบ
+    columns:
+      - name: sale_id
+        tests: [not_null, unique]
+
+snapshots:
+  - name: dim_customer_snapshot
+    description: ประวัติจังหวัดของลูกค้าแบบ SCD Type 2
+    columns:
+      - name: dbt_scd_id
+        tests: [not_null, unique]
+      - name: customer_code
+        tests: [not_null]
+      - name: dbt_valid_from
+        tests: [not_null]
+
+models:
+  - name: stg_coffee_sales
+    description: ข้อมูลขายหลังจัดชนิดข้อมูล หนึ่งแถวต่อ sale_id
+    columns:
+      - name: sale_id
+        tests: [not_null, unique]
+      - name: sale_date
+        tests: [not_null]
+      - name: customer_code
+        tests: [not_null]
+      - name: product_code
+        tests: [not_null]
+      - name: store_code
+        tests: [not_null]
+      - name: staff_code
+        tests: [not_null]
+
+  - name: dim_customer
+    description: Customer dimension แบบ SCD Type 2
+    columns:
+      - name: customer_key
+        tests: [not_null, unique]
+      - name: customer_code
+        tests: [not_null]
+      - name: start_date
+        tests: [not_null]
+      - name: end_date
+        tests: [not_null]
+      - name: is_current
+        tests: [not_null]
+
+  - name: dim_product
+    description: ชื่อสินค้าแบบ Type 1 และ category แบบ Type 3
+    columns:
+      - name: product_key
+        tests: [not_null, unique]
+      - name: product_code
+        tests: [not_null]
+      - name: product_name
+        tests: [not_null]
+      - name: current_category
+        tests: [not_null]
+      - name: size
+        tests: [not_null]
+
+  - name: dim_store
+    description: Store dimension ที่คงค่าแรกแบบ Type 0
+    columns:
+      - name: store_key
+        tests: [not_null, unique]
+      - name: store_code
+        tests: [not_null, unique]
+
+  - name: dim_staff
+    description: Staff dimension ที่คง position แรกแบบ Type 0
+    columns:
+      - name: staff_key
+        tests: [not_null, unique]
+      - name: staff_code
+        tests: [not_null, unique]
+
+  - name: dim_promotion
+    description: Promotion dimension ที่คงค่าแรกแบบ Type 0
+    columns:
+      - name: promo_key
+        tests: [not_null, unique]
+      - name: promo_code
+        tests: [not_null, unique]
+
+  - name: dim_date
+    description: Date dimension
+    columns:
+      - name: date_key
+        tests: [not_null, unique]
+      - name: sale_date
+        tests: [not_null, unique]
+
+  - name: fct_sales
+    description: Fact table หนึ่งแถวต่อ sale_id
+    columns:
+      - name: sale_id
+        tests: [not_null, unique]
+      - name: date_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_date')
+              field: date_key
+      - name: customer_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_customer')
+              field: customer_key
+      - name: product_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_product')
+              field: product_key
+      - name: store_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_store')
+              field: store_key
+      - name: staff_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_staff')
+              field: staff_key
+      - name: promo_key
+        tests:
+          - relationships:
+              to: ref('dim_promotion')
+              field: promo_key
+      - name: revenue
+        tests: [not_null]
+
+  - name: rpt_bangkok_revenue_2024
+    description: รายได้จากลูกค้า Bangkok ในปี 2024
+
+  - name: rpt_changed_products_latest_year
+    description: ยอดขายปีล่าสุดของสินค้าที่เคยเปลี่ยน category

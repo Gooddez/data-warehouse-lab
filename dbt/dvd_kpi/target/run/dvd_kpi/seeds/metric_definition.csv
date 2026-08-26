@@ -1,0 +1,12 @@
+
+    
+    
+    truncate table "dvdrental"."dbt_metadata"."metric_definition";
+    -- dbt seed --
+    
+          insert into "dvdrental"."dbt_metadata"."metric_definition" ("metric_key", "metric_name", "metric_label", "description", "formula", "unit") values
+          (%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s,%s)
+      
+
+;
+  
