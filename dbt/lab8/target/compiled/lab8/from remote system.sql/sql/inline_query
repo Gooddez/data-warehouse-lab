@@ -1,0 +1,8 @@
+
+select 'dim_region' as model, count(*) as row_count from "lab8"."dbt_marts"."dim_region"
+union all select 'dim_province', count(*) from "lab8"."dbt_marts"."dim_province"
+union all select 'dim_store', count(*) from "lab8"."dbt_marts"."dim_store"
+union all select 'dim_date', count(*) from "lab8"."dbt_marts"."dim_date"
+union all select 'fct_sales', count(*) from "lab8"."dbt_marts"."fct_sales"
+union all select 'agg_sales_region_month', count(*)
+from "lab8"."dbt_aggregates"."agg_sales_region_month"

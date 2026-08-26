@@ -1,0 +1,25 @@
+
+    
+    
+
+with child as (
+    select region_key as from_field
+    from "lab8"."dbt_aggregates"."agg_sales_region_month"
+    where region_key is not null
+),
+
+parent as (
+    select region_key as to_field
+    from "lab8"."dbt_marts"."dim_region"
+)
+
+select
+    from_field
+
+from child
+left join parent
+    on child.from_field = parent.to_field
+
+where parent.to_field is null
+
+
