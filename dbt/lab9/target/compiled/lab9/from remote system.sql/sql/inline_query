@@ -1,0 +1,1 @@
+select count(*) as fact_rows from "lab9"."dbt_marts"."fct_sales"

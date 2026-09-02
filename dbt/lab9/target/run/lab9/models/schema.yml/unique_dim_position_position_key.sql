@@ -1,0 +1,22 @@
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    position_key as unique_field,
+    count(*) as n_records
+
+from "lab9"."dbt_marts"."dim_position"
+where position_key is not null
+group by position_key
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test

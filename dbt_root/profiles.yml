@@ -36,3 +36,16 @@ lab8:
       dbname: lab8
       schema: dbt
       threads: 4
+
+lab9:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: postgres
+      user: dw_user
+      password: dw_pass
+      port: 5432
+      dbname: lab9
+      schema: dbt
+      threads: 4
