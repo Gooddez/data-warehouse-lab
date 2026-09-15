@@ -1,0 +1,28 @@
+
+  create view "lab10"."warehouse"."stg_coffee_sales__dbt_tmp"
+    
+    
+  as (
+    select
+    sale_id::integer as sale_id,
+    invoice_number,
+    sale_date::date as sale_date,
+    customer_code,
+    customer_name,
+    gender,
+    birth_year::integer as birth_year,
+    product_code,
+    product_name,
+    lower(trim(category)) as category,
+    size,
+    unit_price::numeric(10, 2) as unit_price,
+    quantity::integer as quantity,
+    revenue::numeric(12, 2) as revenue,
+    store_code,
+    store_name,
+    province,
+    nullif(trim(promo_code), '') as promo_code,
+    nullif(trim(promo_desc), '') as promo_desc,
+    points_redeemed::integer as points_redeemed
+from "lab10"."raw"."coffee_sales"
+  );
